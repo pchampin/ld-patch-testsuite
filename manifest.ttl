@@ -1,0 +1,98 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix mf: <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#> .
+@prefix : <#> .
+
+<>  rdf:type mf:Manifest ;
+    rdfs:comment "LD-Patch tests" ;
+    mf:entries
+    (
+        # positive syntax tests
+        <#empty>
+        ## TODO more...
+
+        # negative syntax tests
+        <#incomplete_prefix>
+        ## TODO more...
+
+        # positive evaluation tests
+        ## TODO atomic tests...
+        <#spec_example1>
+
+        # negative evaluation tests
+        <#ambiguous_path>
+        ## TODO more examples?
+    ) ;
+    .
+
+
+<#empty> rdf:type :PositiveSyntaxTest ;
+   mf:name      "empty" ;
+   rdfs:comment "An empty patch is valid" ;
+   mf:action <empty.ldpatch> ;
+   .
+
+<#incomplete_prefix> rdf:type :NegativeSyntaxTest ;
+   mf:name      "incomplete_prefix" ;
+   rdfs:comment "Incomplete prefix declaration" ;
+   mf:action <incomplete_prefix.bad.ldpatch> ;
+   .
+
+<#spec_example1> rdf:type :PositiveEvaluationTest ;
+   mf:name      "spec_example1" ;
+   rdfs:comment "Example #1 from the LD-Patch specification" ;
+   mf:action    [
+        :data  <spec_example1.ttl> ;
+        :patch <spec_example2.ldpatch> ;
+        :base  <http://example.com/timbl> ;
+        ] ;
+   mf:result    <spec_example3.ttl> ;
+   .
+
+<#ambiguous_path> rdf:type :NegativeEvaluationTest ;
+   mf:name      "ambiguous_path" ;
+   rdfs:comment "Ambigious path applied to Example #1 from the LD-Patch specification" ;
+   mf:action    [
+        :data  <spec_example1.ttl> ;
+        :patch <ambiguous_path.ldpatch> ;
+        ] ;
+   .
+
+
+
+#### Specific test vocabulary ####
+
+:PositiveSyntaxTest rdf:type rdfs:Class ;
+      rdfs:label "Positive Syntax Test" ;
+      rdfs:comment "A type of test specifically for syntax testing. Syntax tests are not required to have an associated result, only an action (an LD-Patch file)." .
+
+:NegativeSyntaxTest rdf:type rdfs:Class ;
+      rdfs:label "Negative Syntax Test" ;
+      rdfs:comment "A type of test specifically for syntax testing. Syntax tests are not required to have an associated result, only an action (an LD-Patch file). Negative syntax tests are tests of which the result should be a parser error." .
+
+:PositiveEvaluationTest rdf:type rdfs:Class ;
+      rdfs:label "Positive Evaluation Test" ;
+      rdfs:comment "A type of test specifically for patch evaluation testing. Positive evaluation tests are required to have an action with :data and :patch properties, and an expected output (a Turtle file)." .
+
+:NegativeEvaluationTest rdf:type rdfs:Class ;
+      rdfs:label "Negative Evaluation Test" ;
+      rdfs:comment "A type of test specifically for patch evaluation testing. Negative evaluation tests are not required to have any associated result, only an action with :data and :patch properties. Negative evaluation tests are tests of which the result should be an execution error" .
+
+
+:data rdf:type rdf:Property ;
+    rdfs:comment "Data file on which to perform action" ;
+    # rdfs:domain  ?? ; ## object of the mf:action property
+    # rdfs:range   ?? ; ## TTL file
+    .	
+
+:patch rdf:type rdf:Property ;
+    rdfs:comment "LD-Patch file with which to perform action" ;
+    # rdfs:domain  ?? ; ## object of the mf:action property
+    # rdfs:range   ?? ; ## LD-Patch file
+    .	
+
+:base rdf:type rdf:Property ;
+    rdfs:comment "Base IRI for data and patch, if different from actual location" ;
+    # rdfs:domain  ?? ; ## object of the mf:action property
+    # rdfs:range   ?? ; ## IRI
+    .	
