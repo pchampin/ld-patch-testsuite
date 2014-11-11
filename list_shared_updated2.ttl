@@ -1,0 +1,10 @@
+@prefix ex: <http://example.org/vocab#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+ex:a ex:letters _:lst.
+ex:b ex:letters _:lst.
+
+_:lst
+    rdf:first "A1" ;
+    rdf:rest ("A2" "b" "c" "d") ;
+.

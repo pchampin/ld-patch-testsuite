@@ -18,6 +18,9 @@
         # positive evaluation tests
         ## TODO atomic tests...
         <#spec_example1>
+        <#list_shared_update1>
+        <#list_shared_update2>
+        <#list_shared_empty>
 
         # negative evaluation tests
         <#ambiguous_path>
@@ -58,6 +61,38 @@
         ] ;
    .
 
+<#list_shared_update1> rdf:type :PositiveEvaluationTest ;
+   mf:name      "list_shared_update1" ;
+   rdfs:comment "When a shared list is updated, all sharing resources see the change" ;
+   mf:action    [
+        :data  <list_shared.ttl> ;
+        :patch <list_shared_update1.ldpatch> ;
+        :base  <http://example.com/> ;
+        ] ;
+   mf:result    <list_shared_updated1.ttl> ;
+   .
+
+<#list_shared_update2> rdf:type :PositiveEvaluationTest ;
+   mf:name      "list_shared_update2" ;
+   rdfs:comment "When a shared list is updated, all sharing resources see the change" ;
+   mf:action    [
+        :data  <list_shared.ttl> ;
+        :patch <list_shared_update2.ldpatch> ;
+        :base  <http://example.com/> ;
+        ] ;
+   mf:result    <list_shared_updated2.ttl> ;
+   .
+
+<#list_shared_empty> rdf:type :PositiveEvaluationTest ;
+   mf:name      "list_shared_empty" ;
+   rdfs:comment "When a shared list is emptied, all sharing resources see the change" ;
+   mf:action    [
+        :data  <list_shared.ttl> ;
+        :patch <list_shared_empty.ldpatch> ;
+        :base  <http://example.com/> ;
+        ] ;
+   mf:result    <list_shared_emptied.ttl> ;
+   .
 
 
 #### Specific test vocabulary ####
