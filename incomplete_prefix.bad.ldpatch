@@ -1,1 +1,1 @@
-@prefixx foo: .
+@prefix foo: .
