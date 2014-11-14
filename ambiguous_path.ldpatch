@@ -2,4 +2,4 @@
 @prefix schema: <http://schema.org/> .
 
 Bind ?event <http://example.com/timbl#> /schema:performerIn .
-Add ?event rdf:type schema:Event .
+Add { ?event rdf:type schema:Event } .
