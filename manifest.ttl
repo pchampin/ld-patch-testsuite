@@ -10,10 +10,15 @@
     (
         # positive syntax tests
         <#empty>
+        <#var-subject>
+        <#var-object>
+        <#var-mixed-prefix>
+        <#var-unicode>
         ## TODO more...
 
         # negative syntax tests
         <#incomplete_prefix>
+        <#var-predicate>
         ## TODO more...
 
         # positive evaluation tests
@@ -33,10 +38,40 @@
    mf:action <empty.ldpatch> ;
    .
 
+<#var-subject> rdf:type :PositiveSyntaxTest ;
+   mf:name      "var-subject" ;
+   rdfs:comment "A variable in subject position" ;
+   mf:action <var-subject.ldpatch> ;
+   .
+
+<#var-object> rdf:type :PositiveSyntaxTest ;
+   mf:name      "var-object" ;
+   rdfs:comment "A variable in object position" ;
+   mf:action <var-object.ldpatch> ;
+   .
+
+<#var-mixed-prefix> rdf:type :PositiveSyntaxTest ;
+   mf:name      "var-mixed-prefix" ;
+   rdfs:comment "Mixing prefix (? or $) for variables" ;
+   mf:action <var-mixed-prefix.ldpatch> ;
+   .
+
+<#var-unicode> rdf:type :PositiveSyntaxTest ;
+   mf:name      "var-unicode" ;
+   rdfs:comment "Variable name using a lot of unicode characters" ;
+   mf:action <var-unicode.ldpatch> ;
+   .
+
 <#incomplete_prefix> rdf:type :NegativeSyntaxTest ;
    mf:name      "incomplete_prefix" ;
    rdfs:comment "Incomplete prefix declaration" ;
    mf:action <incomplete_prefix.bad.ldpatch> ;
+   .
+
+<#var-predicate> rdf:type :NegativeSyntaxTest ;
+   mf:name      "var-predicate" ;
+   rdfs:comment "A variable in predicate position" ;
+   mf:action <var-predicate.ldpatch> ;
    .
 
 <#spec_example1> rdf:type :PositiveEvaluationTest ;

@@ -1,0 +1,4 @@
+Bind ?s <http://www.w3.org/2013/TurtleTests/s> .
+Add {
+?s <http://www.w3.org/2013/TurtleTests/p> <http://www.w3.org/2013/TurtleTests/o> .
+} .
