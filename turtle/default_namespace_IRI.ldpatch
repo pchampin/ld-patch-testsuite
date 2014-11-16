@@ -1,0 +1,4 @@
+@prefix : <http://a.example/>.
+Add {
+:s <http://a.example/p> <http://a.example/o> .
+} .

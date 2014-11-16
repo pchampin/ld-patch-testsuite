@@ -1,0 +1,8 @@
+@prefix : <http://example.org/#> .
+Add {
+
+:a :b "" .
+
+:c :d """""" .
+
+} .

@@ -1,0 +1,7 @@
+@prefix : <http://example.org/base#> .
+Add {
+# Test , operator
+:a :b :c,
+      :d,
+      :e .
+} .

@@ -1,0 +1,4 @@
+@prefix : <http://www.w3.org/2013/TurtleTests/> .
+Add {
+(1 2 (1 2)) :p (( "a") "b" :o) .
+} .

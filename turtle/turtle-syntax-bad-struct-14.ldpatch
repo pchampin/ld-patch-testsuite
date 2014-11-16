@@ -1,0 +1,4 @@
+Add {
+# Literal as subject
+"abc" <http://www.w3.org/2013/TurtleTests/p> <http://www.w3.org/2013/TurtleTests/p>  .
+} .

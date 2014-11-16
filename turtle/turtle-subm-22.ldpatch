@@ -1,0 +1,5 @@
+@prefix : <http://example.org#> .
+Add {
+:a :b true .
+:c :d false .
+} .

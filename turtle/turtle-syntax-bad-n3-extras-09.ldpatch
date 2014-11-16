@@ -1,0 +1,5 @@
+@prefix : <http://www.w3.org/2013/TurtleTests/> .
+Add {
+# => is not Turtle
+:s => :o .
+} .

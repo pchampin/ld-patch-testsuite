@@ -1,0 +1,5 @@
+@prefix : <http://example.org/stuff/1.0/> .
+Add {
+:a :b ( "apple" "banana" ) .
+
+} .

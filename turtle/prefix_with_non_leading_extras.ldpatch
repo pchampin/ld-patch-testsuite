@@ -1,0 +1,4 @@
+@prefix a·̀ͯ‿.⁀: <http://a.example/>.
+Add {
+a·̀ͯ‿.⁀:s <http://a.example/p> <http://a.example/o> .
+} .

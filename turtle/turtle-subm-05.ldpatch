@@ -1,0 +1,6 @@
+@prefix : <http://example.org/base#> .
+Add {
+# Test empty [] operator; not allowed as predicate
+[] :a :b .
+:c :d [] .
+} .

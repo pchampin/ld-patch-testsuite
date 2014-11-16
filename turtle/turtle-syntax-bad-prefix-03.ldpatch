@@ -1,0 +1,4 @@
+@prefix ex: .
+Add {
+# @prefix without URI.
+} .

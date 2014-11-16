@@ -1,0 +1,9 @@
+@prefix :    <http://example.org/ron> .
+Add {
+# Test for : allowed
+
+[] : [] .
+
+: : : .
+
+} .

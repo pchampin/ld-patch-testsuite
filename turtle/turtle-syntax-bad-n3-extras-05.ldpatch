@@ -1,0 +1,6 @@
+@prefix : <http://www.w3.org/2013/TurtleTests/> .
+Add {
+# N3 is...of
+
+:z is :p of :x .
+} .
