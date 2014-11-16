@@ -14,6 +14,14 @@
         <#var-object>
         <#var-mixed-prefix>
         <#var-unicode>
+        <#var-unicode>
+        <#path-forward>
+        <#path-backward>
+        <#path-at>
+        <#path-unicity>
+        <#path-filter>
+        <#path-filter-equal>
+        <#path-mixed>
         ## TODO more...
 
         # negative syntax tests
@@ -60,6 +68,48 @@
    mf:name      "var-unicode" ;
    rdfs:comment "Variable name using a lot of unicode characters" ;
    mf:action <var-unicode.ldpatch> ;
+   .
+
+<#path-forward> rdf:type :PositiveSyntaxTest ;
+   mf:name      "path-forward" ;
+   rdfs:comment "Path containing a StepForward" ;
+   mf:action <path-forward.ldpatch> ;
+   .
+
+<#path-backward> rdf:type :PositiveSyntaxTest ;
+   mf:name      "path-backward" ;
+   rdfs:comment "Path containing a StepBackward" ;
+   mf:action <path-backward.ldpatch> ;
+   .
+
+<#path-at> rdf:type :PositiveSyntaxTest ;
+   mf:name      "path-at" ;
+   rdfs:comment "Path containing a StepAt" ;
+   mf:action <path-at.ldpatch> ;
+   .
+
+<#path-unicity> rdf:type :PositiveSyntaxTest ;
+   mf:name      "path-unicity" ;
+   rdfs:comment "Path containing a unicity constraint" ;
+   mf:action <path-unicity.ldpatch> ;
+   .
+
+<#path-filter> rdf:type :PositiveSyntaxTest ;
+   mf:name      "path-filter" ;
+   rdfs:comment "Path containing a filter" ;
+   mf:action <path-filter.ldpatch> ;
+   .
+
+<#path-filter-equal> rdf:type :PositiveSyntaxTest ;
+   mf:name      "path-filter-equal" ;
+   rdfs:comment "Path containing a filter with an equal sign" ;
+   mf:action <path-filter-equal.ldpatch> ;
+   .
+
+<#path-mixed> rdf:type :PositiveSyntaxTest ;
+   mf:name      "path-mixed" ;
+   rdfs:comment "Complex path expression mixing many elements" ;
+   mf:action <path-mixed.ldpatch> ;
    .
 
 <#incomplete_prefix> rdf:type :NegativeSyntaxTest ;
