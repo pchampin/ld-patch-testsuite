@@ -22,6 +22,13 @@
         <#path-filter>
         <#path-filter-equal>
         <#path-mixed>
+        <#prefix-simple>
+        <#prefix-empty>
+        <#bind-abbr-empty>
+        <#add-empty>
+        <#add-abbr-empty>
+        <#delete-empty>
+        <#delete-abbr-empty>
         ## TODO more...
 
         # negative syntax tests
@@ -111,6 +118,49 @@
    rdfs:comment "Complex path expression mixing many elements" ;
    mf:action <path-mixed.ldpatch> ;
    .
+
+<#prefix-simple> rdf:type :PositiveSyntaxTest ;
+   mf:name      "prefix-simple" ;
+   rdfs:comment "Simple prefix declaration" ;
+   mf:action <prefix-simple.ldpatch> ;
+   .
+
+<#prefix-empty> rdf:type :PositiveSyntaxTest ;
+   mf:name      "Empty prefix declaration" ;
+   rdfs:comment "prefix-empty" ;
+   mf:action <prefix-empty.ldpatch> ;
+   .
+
+<#bind-abbr> rdf:type :PositiveSyntaxTest ;
+   mf:name      "bind-abbr" ;
+   rdfs:comment "Abbreviated Bind statement" ;
+   mf:action <bind-abbr.ldpatch> ;
+   .
+
+<#add-empty> rdf:type :PositiveSyntaxTest ;
+   mf:name      "add-empty" ;
+   rdfs:comment "Add statement with an empty graph" ;
+   mf:action <add-empty.ldpatch> ;
+   .
+
+<#add-abbr-empty> rdf:type :PositiveSyntaxTest ;
+   mf:name      "add-abbr-empty" ;
+   rdfs:comment "Abbreviated Add statement with an empty graph" ;
+   mf:action <add-abbr-empty.ldpatch> ;
+   .
+
+<#delete-empty> rdf:type :PositiveSyntaxTest ;
+   mf:name      "delete-empty" ;
+   rdfs:comment "Delete statement with an empty graph" ;
+   mf:action <delete-empty.ldpatch> ;
+   .
+
+<#delete-abbr-empty> rdf:type :PositiveSyntaxTest ;
+   mf:name      "delete-empty" ;
+   rdfs:comment "Abbreviated Delete statement with an empty graph" ;
+   mf:action <delete-empty.ldpatch> ;
+   .
+
 
 <#incomplete_prefix> rdf:type :NegativeSyntaxTest ;
    mf:name      "incomplete_prefix" ;
