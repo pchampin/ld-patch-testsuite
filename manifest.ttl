@@ -24,21 +24,25 @@
         <#path-mixed>
         <#prefix-simple>
         <#prefix-empty>
-        <#bind-abbr-empty>
-        <#add-empty>
-        <#add-abbr-empty>
-        <#delete-empty>
-        <#delete-abbr-empty>
+        <#bind-abbr>
+        <#add-1triple>
+        <#add-abbr-1triple>
+        <#delete-1triple>
+        <#delete-abbr-1triple>
         ## TODO more...
 
         # negative syntax tests
         <#incomplete_prefix>
         <#var-predicate>
+        <#slice-bad1>
+        <#add-empty>
+        <#delete-empty>
         ## TODO more...
 
         # positive evaluation tests
         ## TODO atomic tests...
         <#spec_example1>
+        <#prefix_override>
 
         # negative evaluation tests
         <#ambiguous_path>
@@ -137,28 +141,28 @@
    mf:action <bind-abbr.ldpatch> ;
    .
 
-<#add-empty> rdf:type :PositiveSyntaxTest ;
-   mf:name      "add-empty" ;
-   rdfs:comment "Add statement with an empty graph" ;
-   mf:action <add-empty.ldpatch> ;
+<#add-1triple> rdf:type :PositiveSyntaxTest ;
+   mf:name      "add-1triple" ;
+   rdfs:comment "Add statement with a single triple" ;
+   mf:action <add-1triple.ldpatch> ;
    .
 
-<#add-abbr-empty> rdf:type :PositiveSyntaxTest ;
-   mf:name      "add-abbr-empty" ;
-   rdfs:comment "Abbreviated Add statement with an empty graph" ;
-   mf:action <add-abbr-empty.ldpatch> ;
+<#add-abbr-1triple> rdf:type :PositiveSyntaxTest ;
+   mf:name      "add-abbr-1triple" ;
+   rdfs:comment "Abbreviated Add statement with a single triple" ;
+   mf:action <add-abbr-1triple.ldpatch> ;
    .
 
-<#delete-empty> rdf:type :PositiveSyntaxTest ;
-   mf:name      "delete-empty" ;
-   rdfs:comment "Delete statement with an empty graph" ;
-   mf:action <delete-empty.ldpatch> ;
+<#delete-1triple> rdf:type :PositiveSyntaxTest ;
+   mf:name      "delete-1triple" ;
+   rdfs:comment "Delete statement with a single triple" ;
+   mf:action <delete-1triple.ldpatch> ;
    .
 
-<#delete-abbr-empty> rdf:type :PositiveSyntaxTest ;
-   mf:name      "delete-empty" ;
-   rdfs:comment "Abbreviated Delete statement with an empty graph" ;
-   mf:action <delete-empty.ldpatch> ;
+<#delete-abbr-1triple> rdf:type :PositiveSyntaxTest ;
+   mf:name      "delete-1triple" ;
+   rdfs:comment "Abbreviated Delete statement with a single triple" ;
+   mf:action <delete-1triple.ldpatch> ;
    .
 
 
@@ -174,6 +178,24 @@
    mf:action <var-predicate.ldpatch> ;
    .
 
+<#slice-bad1> rdf:type :NegativeSyntaxTest ;
+   mf:name      "slice-bad1" ;
+   rdfs:comment "A variable in predicate position" ;
+   mf:action <slice-bad1.ldpatch> ;
+   .
+
+<#add-empty> rdf:type :NegativeSyntaxTest ;
+   mf:name      "add-empty" ;
+   rdfs:comment "Can not add an empty graph" ;
+   mf:action <add-empty.ldpatch> ;
+   .
+
+<#delete-empty> rdf:type :NegativeSyntaxTest ;
+   mf:name      "delete-empty" ;
+   rdfs:comment "Can not delete an empty graph" ;
+   mf:action <delete-empty.ldpatch> ;
+   .
+
 <#spec_example1> rdf:type :PositiveEvaluationTest ;
    mf:name      "spec_example1" ;
    rdfs:comment "Example #1 from the LD-Patch specification" ;
@@ -183,6 +205,16 @@
         :base  <http://example.com/timbl> ;
         ] ;
    mf:result    <spec_example3.ttl> ;
+   .
+
+<#prefix_override> rdf:type :PositiveEvaluationTest ;
+   mf:name      "prefix_override" ;
+   rdfs:comment "Subsequent prefix" ;
+   mf:action    [
+        :data  <empty.ttl> ;
+        :patch <prefix_override.ldpatch> ;
+        ] ;
+   mf:result    <prefix_override.ttl> ;
    .
 
 <#ambiguous_path> rdf:type :NegativeEvaluationTest ;

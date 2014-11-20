@@ -1,0 +1,4 @@
+@prefix foo: <http://example.org/ns2/> .
+@prefix foo: <http://example.org/ns1#> .
+
+Add { foo:s foo:p foo:o } .
