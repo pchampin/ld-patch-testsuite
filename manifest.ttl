@@ -12,7 +12,6 @@
         <#empty>
         <#var-subject>
         <#var-object>
-        <#var-mixed-prefix>
         <#var-unicode>
         <#var-unicode>
         <#path-forward>
@@ -67,12 +66,6 @@
    mf:name      "var-object" ;
    rdfs:comment "A variable in object position" ;
    mf:action <var-object.ldpatch> ;
-   .
-
-<#var-mixed-prefix> rdf:type :PositiveSyntaxTest ;
-   mf:name      "var-mixed-prefix" ;
-   rdfs:comment "Mixing prefix (? or $) for variables" ;
-   mf:action <var-mixed-prefix.ldpatch> ;
    .
 
 <#var-unicode> rdf:type :PositiveSyntaxTest ;
