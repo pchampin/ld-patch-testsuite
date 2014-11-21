@@ -1106,21 +1106,21 @@
 <#turtle-syntax-file-01> rdf:type :PositiveSyntaxTest ;
    mf:name    "turtle-syntax-file-01" ;
    rdfs:comment "Empty file" ;
-   rdft:approval rdft:Approved ;
+   rdft:approval :Skipped ; # Empty graph not allowed in LD-Patch
    mf:action    <turtle-syntax-file-01.ldpatch> ;
    .
 
 <#turtle-syntax-file-02> rdf:type :PositiveSyntaxTest ;
    mf:name    "turtle-syntax-file-02" ;
    rdfs:comment "Only comment" ;
-   rdft:approval rdft:Approved ;
+   rdft:approval :Skipped ; # Empty graph not allowed in LD-Patch
    mf:action    <turtle-syntax-file-02.ldpatch> ;
    .
 
 <#turtle-syntax-file-03> rdf:type :PositiveSyntaxTest ;
    mf:name    "turtle-syntax-file-03" ;
    rdfs:comment "One comment, one empty line" ;
-   rdft:approval rdft:Approved ;
+   rdft:approval :Skipped ; # Empty graph not allowed in LD-Patch
    mf:action    <turtle-syntax-file-03.ldpatch> ;
    .
 
@@ -1183,14 +1183,14 @@
 <#turtle-syntax-prefix-01> rdf:type :PositiveSyntaxTest ;
    mf:name    "turtle-syntax-prefix-01" ;
    rdfs:comment "@prefix" ;
-   rdft:approval rdft:Approved ;
+   rdft:approval :Skipped ; # Empty graph not allowed in LD-Patch
    mf:action    <turtle-syntax-prefix-01.ldpatch> ;
    .
 
 <#turtle-syntax-prefix-02> rdf:type :PositiveSyntaxTest ;
    mf:name    "turtle-syntax-prefix-02" ;
    rdfs:comment "PreFIX" ;
-   rdft:approval rdft:Approved ;
+   rdft:approval :Skipped ; # Empty graph not allowed in LD-Patch
    mf:action    <turtle-syntax-prefix-02.ldpatch> ;
    .
 
