@@ -155,7 +155,7 @@
 <#delete-abbr-1triple> rdf:type :PositiveSyntaxTest ;
    mf:name      "delete-1triple" ;
    rdfs:comment "Abbreviated Delete statement with a single triple" ;
-   mf:action <delete-1triple.ldpatch> ;
+   mf:action <delete-abbr-1triple.ldpatch> ;
    .
 
 
@@ -173,7 +173,7 @@
 
 <#slice-bad1> rdf:type :NegativeSyntaxTest ;
    mf:name      "slice-bad1" ;
-   rdfs:comment "A variable in predicate position" ;
+   rdfs:comment "A slice with indices in the wrong order" ;
    mf:action <slice-bad1.ldpatch> ;
    .
 
