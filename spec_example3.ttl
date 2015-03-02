@@ -1,14 +1,14 @@
 @prefix schema: <http://schema.org/> .
 @prefix profile: <http://ogp.me/ns/profile#> .
 @prefix ex: <http://example.org/vocab#> .
-
-<http://example.com/timbl#> a schema:Person ;
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+<#> a schema:Person ;
   schema:alternateName "TimBL" ;
   profile:first_name "Timothy" ;
   profile:last_name "Berners-Lee" ;
-  schema:workLocation [ schema:name "W3C/MIT" ] ;
+  profile:image <https://example.org/timbl.jpg> ;
   schema:performerIn _:b1, _:b2 ;
-  ex:preferredLanguages ( "en" "fr-CH" ).
+  ex:preferredLanguages ( "en" "fr-CH" ) .
 
 _:b1 a schema:Event ;
   schema:name "F2F5 - Linked Data Platform" ;
