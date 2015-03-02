@@ -2328,6 +2328,7 @@
    rdfs:comment "Bad IRI : good escape, bad charcater (negative evaluation test)" ;
    rdft:approval rdft:Approved ;
    mf:action    [ :data <empty.ttl> ; :patch <turtle-eval-bad-01.ldpatch> ] ;
+   :statusCode 400 ;
    .
 
 <#turtle-eval-bad-02> rdf:type :NegativeEvaluationTest ;
@@ -2335,6 +2336,7 @@
    rdfs:comment "Bad IRI : hex 3C is < (negative evaluation test)" ;
    rdft:approval rdft:Approved ;
    mf:action    [ :data <empty.ttl> ; :patch <turtle-eval-bad-02.ldpatch> ] ;
+   :statusCode 400 ;
    .
 
 <#turtle-eval-bad-03> rdf:type :NegativeEvaluationTest ;
@@ -2342,6 +2344,7 @@
    rdfs:comment "Bad IRI : hex 3E is  (negative evaluation test)" ;
    rdft:approval rdft:Approved ;
    mf:action    [ :data <empty.ttl> ; :patch <turtle-eval-bad-03.ldpatch> ] ;
+   :statusCode 400 ;
    .
 
 <#turtle-eval-bad-04> rdf:type :NegativeSyntaxTest ;

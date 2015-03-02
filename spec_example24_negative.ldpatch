@@ -1,0 +1,17 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+
+Bind ?b1 schema:Person / ^rdf:type .
+
+Add {
+    ?b1 rdfs:label "b1" .
+} .
+
+Bind ?b3 "W3C/MIT" / ^schema:name .
+Bind ?b1 rdf:type / schema:Person .
+
+Add {
+    ?b2 rdfs:label "b2" .
+    ?b3 rdfs:label "b3" .
+} .

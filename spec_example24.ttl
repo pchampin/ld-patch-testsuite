@@ -1,0 +1,11 @@
+# example of pathological graph from the LD Patch specification
+# _:b1 can not be unambiguously reached.
+# Note however that _:b2 and _:b3 can.
+@prefix foaf:   <http://xmlns.com/foaf/0.1/>.
+@prefix schema: <http://schema.org/>.
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#>.
+
+<#> foaf:name "Alice" ; foaf:knows _:b1, _:b2 .
+_:b1 a foaf:Person .
+_:b2 a foaf:Person ; schema:workLocation _:b3 .
+_:b3 schema:name "W3C/MIT" .

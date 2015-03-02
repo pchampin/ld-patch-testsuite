@@ -1,6 +1,7 @@
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix mf: <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix : <#> .
 
 <>  rdf:type mf:Manifest ;
@@ -40,10 +41,19 @@
 
         # positive evaluation tests
         ## TODO atomic tests...
-        <#spec_example1>
+        <#spec_examples-1-2-3>
+        <#spec_examples-4-5-6>
+        <#spec_examples-4-7-8>
+        <#spec_examples-4-9-10>
+        <#spec_examples-4-11-12>
+        <#spec_examples-4-13-14>
+        <#spec_examples-4-15-16>
+        <#spec_examples-4-17-18>
+        <#spec_example24_positive>
         <#prefix_override>
 
         # negative evaluation tests
+        <#spec_example24_negative>
         <#ambiguous_path>
         ## TODO more examples?
     ) ;
@@ -189,15 +199,103 @@
    mf:action <delete-empty.ldpatch> ;
    .
 
-<#spec_example1> rdf:type :PositiveEvaluationTest ;
-   mf:name      "spec_example1" ;
-   rdfs:comment "Example #1 from the LD-Patch specification" ;
+<#spec_examples-1-2-3> rdf:type :PositiveEvaluationTest ;
+   mf:name      "spec_examples-1-2-3" ;
+   rdfs:comment "Examples #1 to #3 from the LD-Patch specification" ;
    mf:action    [
         :data  <spec_example1.ttl> ;
         :patch <spec_example2.ldpatch> ;
         :base  <http://example.com/timbl> ;
         ] ;
    mf:result    <spec_example3.ttl> ;
+   .
+
+<#spec_examples-4-5-6> rdf:type :PositiveEvaluationTest ;
+   mf:name      "spec_examples-4-5-6" ;
+   rdfs:comment "Examples #4 to #6 from the LD-Patch specification" ;
+   mf:action    [
+        :data  <spec_example4.ttl> ;
+        :patch <spec_example5.ldpatch> ;
+        :base  <http://example.com/timbl> ;
+        ] ;
+   mf:result    <spec_example6.ttl> ;
+   .
+
+<#spec_examples-4-7-8> rdf:type :PositiveEvaluationTest ;
+   mf:name      "spec_examples-4-7-8" ;
+   rdfs:comment "Examples #4, #7 and #8 from the LD-Patch specification" ;
+   mf:action    [
+        :data  <spec_example4.ttl> ;
+        :patch <spec_example7.ldpatch> ;
+        :base  <http://example.com/timbl> ;
+        ] ;
+   mf:result    <spec_example8.ttl> ;
+   .
+
+<#spec_examples-4-9-10> rdf:type :PositiveEvaluationTest ;
+   mf:name      "spec_examples-4-9-10" ;
+   rdfs:comment "Examples #4, #9 and #10 from the LD-Patch specification" ;
+   mf:action    [
+        :data  <spec_example4.ttl> ;
+        :patch <spec_example9.ldpatch> ;
+        :base  <http://example.com/timbl> ;
+        ] ;
+   mf:result    <spec_example10.ttl> ;
+   .
+
+<#spec_examples-4-11-12> rdf:type :PositiveEvaluationTest ;
+   mf:name      "spec_examples-4-11-12" ;
+   rdfs:comment "Examples #4, #11 and #12 from the LD-Patch specification" ;
+   mf:action    [
+        :data  <spec_example4.ttl> ;
+        :patch <spec_example11.ldpatch> ;
+        :base  <http://example.com/timbl> ;
+        ] ;
+   mf:result    <spec_example12.ttl> ;
+   .
+
+<#spec_examples-4-13-14> rdf:type :PositiveEvaluationTest ;
+   mf:name      "spec_examples-4-13-14" ;
+   rdfs:comment "Examples #4, #13 and #14 from the LD-Patch specification" ;
+   mf:action    [
+        :data  <spec_example4.ttl> ;
+        :patch <spec_example13.ldpatch> ;
+        :base  <http://example.com/timbl> ;
+        ] ;
+   mf:result    <spec_example14.ttl> ;
+   .
+
+<#spec_examples-4-15-16> rdf:type :PositiveEvaluationTest ;
+   mf:name      "spec_examples-4-15-16" ;
+   rdfs:comment "Examples #4, #15 and #16 from the LD-Patch specification" ;
+   mf:action    [
+        :data  <spec_example4.ttl> ;
+        :patch <spec_example15.ldpatch> ;
+        :base  <http://example.com/timbl> ;
+        ] ;
+   mf:result    <spec_example16.ttl> ;
+   .
+
+<#spec_examples-4-17-18> rdf:type :PositiveEvaluationTest ;
+   mf:name      "spec_examples-4-17-18" ;
+   rdfs:comment "Examples #4, #17 and #18 from the LD-Patch specification" ;
+   mf:action    [
+        :data  <spec_example4.ttl> ;
+        :patch <spec_example17.ldpatch> ;
+        :base  <http://example.com/timbl> ;
+        ] ;
+   mf:result    <spec_example18.ttl> ;
+   .
+
+<#spec_example24_positive> rdf:type :PositiveEvaluationTest ;
+   mf:name      "spec_example24_positive" ;
+   rdfs:comment "Successful binding of unambiguous bnodes in a pathological graph." ;
+   mf:action    [
+        :data  <spec_example24.ttl> ;
+        :patch <spec_example24_positive.ldpatch> ;
+        :base  <http://example.com/pathological> ;
+        ] ;
+   mf:result    <spec_example24_patched.ttl> ;
    .
 
 <#prefix_override> rdf:type :PositiveEvaluationTest ;
@@ -217,6 +315,17 @@
         :data  <spec_example1.ttl> ;
         :patch <ambiguous_path.ldpatch> ;
         ] ;
+   :statusCode 422 ;
+   .
+
+<#spec_example24_negative> rdf:type :NegativeEvaluationTest ;
+   mf:name      "spec_example24_negative" ;
+   rdfs:comment "Unsuccessful binding in a pathological graph." ;
+   mf:action    [
+        :data  <spec_example24.ttl> ;
+        :patch <spec_example24_negative.ldpatch> ;
+        ] ;
+   :statusCode 422 ;
    .
 
 
@@ -257,3 +366,10 @@
     # rdfs:domain  ?? ; ## object of the mf:action property
     # rdfs:range   ?? ; ## IRI
     .	
+
+:statusCode rdf:type rdf:Property ;
+    rdfs:comment "HTTP status code expected for a negative evaluation test" ;
+    rdfs:domain :NegativeEvaluationTest ;
+    rdfs:range xsd:integer ;
+    .	
+

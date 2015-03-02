@@ -1,0 +1,10 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+
+Bind ?b3 "W3C/MIT" / ^schema:name .
+Bind ?b2 ?b3 / ^schema:workLocation .
+
+Add {
+    ?b2 rdfs:label "b2" .
+    ?b3 rdfs:label "b3" .
+} .
