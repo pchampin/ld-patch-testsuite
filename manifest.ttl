@@ -32,7 +32,6 @@
         ## TODO more...
 
         # negative syntax tests
-        <#incomplete_prefix>
         <#var-predicate>
         <#slice-bad1>
         <#add-empty>
@@ -44,7 +43,7 @@
         <#spec_examples-1-2-3>
         <#spec_examples-4-5-6>
         <#spec_examples-4-7-8>
-        <#spec_examples-4-9-10>
+        <#spec_examples-4-9-10s>
         <#spec_examples-4-11-12>
         <#spec_examples-4-13-14>
         <#spec_examples-4-15-16>
@@ -166,13 +165,6 @@
    mf:name      "delete-1triple" ;
    rdfs:comment "Abbreviated Delete statement with a single triple" ;
    mf:action <delete-abbr-1triple.ldpatch> ;
-   .
-
-
-<#incomplete_prefix> rdf:type :NegativeSyntaxTest ;
-   mf:name      "incomplete_prefix" ;
-   rdfs:comment "Incomplete prefix declaration" ;
-   mf:action <incomplete_prefix.bad.ldpatch> ;
    .
 
 <#var-predicate> rdf:type :NegativeSyntaxTest ;
