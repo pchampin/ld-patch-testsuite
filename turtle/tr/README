@@ -1,4 +1,0 @@
-Those tools were used to convert the Turtle testsuite into LD Patch tests .
-They are kept in case the Turtle testsuite should evolve and we want to import those evolutions.
-
-Note that the modifications on manifest.ttl were not automated.

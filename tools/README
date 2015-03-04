@@ -1,0 +1,7 @@
+This directory contain tools to automate the creation of some tests.
+
+- tr-turtle-manifest.py
+  assuming that turtle/ contains the turtle test suite,
+  convert turtle/manifest.ttl into turtle/manifest-ldpatch.ttl
+  and produces all the necessary files.
+

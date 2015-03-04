@@ -6,7 +6,7 @@
 
 <>  rdf:type mf:Manifest ;
     rdfs:comment "LD-Patch tests" ;
-    mf:include ( <turtle/manifest.ttl> ) ;
+    mf:include ( <turtle/manifest-ldpatch.ttl> ) ;
     mf:entries
     (
         # positive syntax tests
