@@ -1,0 +1,5 @@
+<http://example.org/base#a> <http://example.org/base#b> <http://example.org/base#c> .
+<http://example.org/base#a> <http://example.org/base#b> <http://example.org/base#d> .
+<http://example.org/base#a> <http://example.org/base#b> <http://example.org/base#e> .
+#<http://example.org/something> <http://example.org/completely> <http://example.org/different> .
+#<http://example.org/something> <http://example.org/blank> _:genid000 .

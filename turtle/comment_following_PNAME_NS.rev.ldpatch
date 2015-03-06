@@ -1,0 +1,5 @@
+@prefix p: <http://a.example/> .
+Delete {
+<http://a.example/s> <http://a.example/p> p:#comment
+.
+} .

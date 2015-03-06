@@ -27,7 +27,8 @@ NS = Namespace(MAIN_MANIFEST_IRI + "#")
 MF = Namespace("http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#")
 RDFT = Namespace("http://www.w3.org/ns/rdftest#")
 
-EMPTY_TTL = URIRef("file://{}".format(join(TURTLE_TESTSUITE_PATH, "empty.ttl")))
+SCD_PATH = join(MAIN_TESTSUITE_PATH, "scd.nt")
+SCD_TTL = URIRef("file://{}".format(pathname2url(SCD_PATH)))
 BASE = URIRef("http://www.w3.org/2013/TurtleTests/turtle-subm-01.ttl")
 
 BLACKLIST = {
@@ -67,11 +68,14 @@ def main():
     oentries = []
 
     for ientry in ientries:
+        ntiri = None
+        delete_friendly = False
+
         if unicode(gin.value(ientry, MF.name)) in BLACKLIST:
             continue
         oentry = in2out(ientry)
-        entry_name = gin.value(ientry, MF.name)
         oentries.append(oentry)
+        entry_name = gin.value(ientry, MF.name)
         otype = convert_entry_type(gin.value(ientry, RDF.type), entry_name)
         gout.add((oentry, RDF.type, otype))
         gout.add((oentry, MF.name, entry_name))
@@ -79,7 +83,8 @@ def main():
         gout.add((oentry, RDFS.comment, gin.value(ientry, RDFS.comment)))
 
         if otype == NS.PositiveEvaluationTest:
-            gout.add((oentry, MF.result, gin.value(ientry, MF.result)))
+            ntiri, delete_friendly = nt2nt(gin.value(ientry, MF.result))
+            gout.add((oentry, MF.result, ntiri))
 
         iaction = gin.value(ientry, MF.action)
         if otype in { NS.NegativeSyntaxTest, NS.PositiveSyntaxTest }:
@@ -88,8 +93,24 @@ def main():
             oaction = BNode()
             gout.add((oentry, MF.action, oaction))
             gout.add((oaction, NS.base, BASE))
-            gout.add((oaction, NS.data, EMPTY_TTL))
+            gout.add((oaction, NS.data, SCD_TTL))
             gout.add((oaction, NS.patch, ttl2patch(iaction)))
+
+
+        if delete_friendly:
+            oentry = URIRef(oentry + "__reverted")
+            oentries.append(oentry)
+            entry_name = Literal(entry_name + "__reverted")
+            gout.add((oentry, RDF.type, otype))
+            gout.add((oentry, MF.name, entry_name))
+            gout.add((oentry, RDFT.approval, gin.value(ientry, RDFT.approval)))
+            gout.add((oentry, RDFS.comment, gin.value(ientry, RDFS.comment)))
+            gout.add((oentry, MF.result, SCD_TTL))
+            oaction = BNode()
+            gout.add((oentry, MF.action, oaction))
+            gout.add((oaction, NS.base, BASE))
+            gout.add((oaction, NS.data, ntiri))
+            gout.add((oaction, NS.patch, ttl2patch(iaction, ".rev", "Delete")))
 
     listname = BNode()
     Collection(gout, listname, oentries)
@@ -132,9 +153,9 @@ def convert_entry_type(etype, entry_name):
         RDFT.TestTurtleNegativeSyntax: NS.NegativeSyntaxTest,
     }[etype]
 
-def ttl2patch(iri):
+def ttl2patch(iri, revext="", command="Add"):
     "Convert a ttl file into an ldpatch file."
-    ret = URIRef(iri.replace(".ttl", ".ldpatch"))
+    ret = URIRef(iri.replace(".ttl", "{}.ldpatch".format(revext)))
     ipath = unicode(iri)[7:]
     opath = unicode(ret)[7:]
     with open(opath, "w") as ofile:
@@ -142,13 +163,32 @@ def ttl2patch(iri):
             for line in ifile:
                 if line.startswith("@prefix"):
                     ofile.write(line)
-        ofile.write("Add {\n")
+        ofile.write("{} {{\n".format(command))
         with open(ipath) as ifile:
             for line in ifile:
                 if not line.startswith("@prefix"):
                     ofile.write(line)
         ofile.write("} .\n")
     return ret
+
+def nt2nt(iri):
+    "Convert an nt file into an ldpatch file."
+    retiri = URIRef(iri.replace(".nt", "+scd.nt"))
+    delete_friendly = True
+
+    ipath = unicode(iri)[7:]
+    opath = unicode(retiri)[7:]
+    with open(opath, "w") as ofile:
+        with open(ipath) as ifile:
+            for line in ifile:
+                if "_:" in line:
+                    delete_friendly = False
+                ofile.write(line)
+        with open(SCD_PATH) as ifile:
+            for line in ifile:
+                ofile.write(line)
+
+    return retiri, delete_friendly
 
 
 if __name__ == "__main__":

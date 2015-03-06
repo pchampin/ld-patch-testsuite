@@ -1,0 +1,8 @@
+@prefix :  <http://example.org/ex#> .
+Delete {
+# Test long literal
+:a :b """a long
+	literal
+with
+newlines""" .
+} .

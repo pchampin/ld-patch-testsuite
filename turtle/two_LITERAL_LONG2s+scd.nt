@@ -1,0 +1,4 @@
+<http://example.org/ex#a> <http://example.org/ex#b> "first long literal" .
+<http://example.org/ex#c> <http://example.org/ex#d> "second long literal" .
+#<http://example.org/something> <http://example.org/completely> <http://example.org/different> .
+#<http://example.org/something> <http://example.org/blank> _:genid000 .

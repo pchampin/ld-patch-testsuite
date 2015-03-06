@@ -1,0 +1,4 @@
+@prefix AZazÀÖØöø˿ͰͽͿ῿‌‍⁰↏Ⰰ⿯、퟿豈﷏ﷰ�𐀀󯿽: <http://a.example/> .
+Delete {
+<http://a.example/s> <http://a.example/p> AZazÀÖØöø˿ͰͽͿ῿‌‍⁰↏Ⰰ⿯、퟿豈﷏ﷰ�𐀀󯿽:o .
+} .

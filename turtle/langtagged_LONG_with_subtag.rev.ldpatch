@@ -1,0 +1,5 @@
+@prefix :  <http://example.org/ex#> .
+Delete {
+# Test long literal with lang tag
+:a :b """Cheers"""@en-UK .
+} .

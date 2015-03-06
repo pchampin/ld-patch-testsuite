@@ -1,0 +1,4 @@
+@prefix p: <http://a.example/>.
+Delete {
+p:s: <http://a.example/p> <http://a.example/o> .
+} .

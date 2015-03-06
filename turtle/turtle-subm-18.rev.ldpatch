@@ -1,0 +1,8 @@
+@prefix : <http://example.org/#> .
+Delete {
+
+:a :b "" .
+
+:c :d """""" .
+
+} .
