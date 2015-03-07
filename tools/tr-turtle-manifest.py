@@ -8,10 +8,18 @@ into a manifest-ldpatch.ttl adapted to LD Patch.
 
 # pylint: disable=C0103
 from os.path import abspath, dirname, join
-from urllib import pathname2url
+from urllib import pathname2url, url2pathname
 
 from rdflib import BNode, Graph, Literal, Namespace, RDF, RDFS, URIRef
 from rdflib.collection import Collection
+
+def p2i(path):
+    "Convert path to IRI"
+    return URIRef("file://{}".format(pathname2url(path)))
+
+def i2p(iri):
+    "Convert IRI to path"
+    return url2pathname(iri[7:])
 
 MAIN_TESTSUITE_PATH = abspath(dirname(dirname(__file__)))
 MAIN_MANIFEST_PATH = join(MAIN_TESTSUITE_PATH, "manifest.ttl")
@@ -19,9 +27,9 @@ TURTLE_TESTSUITE_PATH = join(MAIN_TESTSUITE_PATH, "turtle")
 IN_MANIFEST_PATH = join(TURTLE_TESTSUITE_PATH, "manifest.ttl")
 OUT_MANIFEST_PATH = join(TURTLE_TESTSUITE_PATH, "manifest-ldpatch.ttl")
 
-MAIN_MANIFEST_IRI = URIRef("file://{}".format(pathname2url(MAIN_MANIFEST_PATH)))
-IN_MANIFEST_IRI = URIRef("file://{}".format(pathname2url(IN_MANIFEST_PATH)))
-OUT_MANIFEST_IRI = URIRef("file://{}".format(pathname2url(OUT_MANIFEST_PATH)))
+MAIN_MANIFEST_IRI = p2i(MAIN_MANIFEST_PATH)
+IN_MANIFEST_IRI = p2i(IN_MANIFEST_PATH)
+OUT_MANIFEST_IRI = p2i(OUT_MANIFEST_PATH)
 
 NS = Namespace(MAIN_MANIFEST_IRI + "#")
 MF = Namespace("http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#")
@@ -122,8 +130,8 @@ def main():
     outttl = gout.serialize(format="turtle")
     outttl = (outttl.decode("utf-8") # relativize all IRIS that need to
               .replace("<" + OUT_MANIFEST_IRI, "<")
-              .replace("<file://" + TURTLE_TESTSUITE_PATH + "/", "<")
-              .replace("<file://" + MAIN_TESTSUITE_PATH, "<..")
+              .replace("<file://" + pathname2url(TURTLE_TESTSUITE_PATH) + "/", "<")
+              .replace("<file://" + pathname2url(MAIN_TESTSUITE_PATH), "<..")
              ).encode("utf-8")
     with open(OUT_MANIFEST_PATH, "w") as fout:
         fout.write(outttl)
@@ -156,8 +164,8 @@ def convert_entry_type(etype, entry_name):
 def ttl2patch(iri, revext="", command="Add"):
     "Convert a ttl file into an ldpatch file."
     ret = URIRef(iri.replace(".ttl", "{}.ldpatch".format(revext)))
-    ipath = unicode(iri)[7:]
-    opath = unicode(ret)[7:]
+    ipath = i2p(iri)
+    opath = i2p(ret)
     with open(opath, "w") as ofile:
         with open(ipath) as ifile:
             for line in ifile:
@@ -173,11 +181,11 @@ def ttl2patch(iri, revext="", command="Add"):
 
 def nt2nt(iri):
     "Convert an nt file into an ldpatch file."
-    retiri = URIRef(iri.replace(".nt", "+scd.nt"))
+    retiri = URIRef(iri.replace(".nt", "%2Bscd.nt"))
     delete_friendly = True
 
-    ipath = unicode(iri)[7:]
-    opath = unicode(retiri)[7:]
+    ipath = i2p(iri)
+    opath = i2p(retiri)
     with open(opath, "w") as ofile:
         with open(ipath) as ifile:
             for line in ifile:
