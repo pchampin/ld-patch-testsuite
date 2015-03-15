@@ -1,0 +1,3 @@
+# GENERATED from s_bad_cut_no_period.ldpatch - DO NOT CHANGE
+Bind ?x <http://example.org/s1> / <http://example.org/p1> .
+C ?x

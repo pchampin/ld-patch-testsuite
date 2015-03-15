@@ -1,0 +1,480 @@
+@prefix : <manifest.ttl#> .
+@prefix mf: <http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdft: <http://www.w3.org/ns/rdftest#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<> a mf:Manifest ;
+    rdfs:comment "Syntax tests for LD Patch" ;
+    mf:entries ( <#deleteexisting_var_as_object.v> <#add_no_period> <#a_var_as_subject.v> <#d_var_as_object.v> <#a_var_as_object.v> <#add_var_as_predicate> <#an_var_as_predicate.v> <#bind_no_path> <#ul_no_predicate.v> <#delete_empty_graph.v> <#d_empty_graph.v> <#bind_no_period> <#add_var_as_subject> <#deleteexisting_var_as_predicate.v> <#c_simple.v> <#add_empty_graph> <#updatelist_var> <#path_mixed> <#updatelist_literal> <#ul_iri.v> <#deleteexisting_no_period.v> <#cut_simple> <#delete_var_as_subject.v> <#an_var_as_object.v> <#bind_no_var> <#c_iri.v> <#deleteexisting_var_as_subject.v> <#deleteexisting_empty_graph.v> <#delete_no_period.v> <#de_no_period.v> <#ul_var.v> <#addnew_no_period.v> <#c_bnode.v> <#updatelist_single_index> <#de_var_as_predicate.v> <#cut_iri> <#updatelist_no_slice> <#de_var_as_object.v> <#updatelist_bnode> <#ul_bnode.v> <#empty_patch_comments> <#bind_var_unicode> <#updatelist_no_predicate> <#de_empty_graph.v> <#ul_no_value.v> <#empty_patch> <#empty_patch_whitespace> <#cut_bnode> <#an_var_as_subject.v> <#ul_literal.v> <#a_no_period.v> <#addnew_var_as_object.v> <#c_no_period.v> <#an_no_period.v> <#delete_var_as_object.v> <#de_var_as_subject.v> <#updatelist_no_period> <#ul_slice_wrong_order.v> <#updatelist_no_value> <#d_var_as_predicate.v> <#addnew_empty_graph.v> <#an_empty_graph.v> <#ul_single_index.v> <#a_empty_graph.v> <#undeclared_prefix> <#a_var_as_predicate.v> <#cut_no_period> <#updatelist_slice_wrong_order> <#d_no_period.v> <#ul_no_slice.v> <#unbound_variable> <#addnew_var_as_predicate.v> <#d_var_as_subject.v> <#add_var_as_object> <#updatelist_iri> <#ul_no_period.v> <#delete_var_as_predicate.v> <#addnew_var_as_subject.v> ) .
+
+<#a_empty_graph.v> a :NegativeSyntaxTest ;
+    rdfs:comment "a empty graph.v ()" ;
+    mf:action <s_bad_a_empty_graph.v.ldpatch> ;
+    mf:name "a_empty_graph.v" ;
+    rdft:approval rdft:Approved .
+
+<#a_no_period.v> a :NegativeSyntaxTest ;
+    rdfs:comment "a no period.v ()" ;
+    mf:action <s_bad_a_no_period.v.ldpatch> ;
+    mf:name "a_no_period.v" ;
+    rdft:approval rdft:Approved .
+
+<#a_var_as_object.v> a :PositiveSyntaxTest ;
+    rdfs:comment "a var as object.v ()" ;
+    mf:action <s_a_var_as_object.v.ldpatch> ;
+    mf:name "a_var_as_object.v" ;
+    rdft:approval rdft:Approved .
+
+<#a_var_as_predicate.v> a :NegativeSyntaxTest ;
+    rdfs:comment "a var as predicate.v ()" ;
+    mf:action <s_bad_a_var_as_predicate.v.ldpatch> ;
+    mf:name "a_var_as_predicate.v" ;
+    rdft:approval rdft:Approved .
+
+<#a_var_as_subject.v> a :PositiveSyntaxTest ;
+    rdfs:comment "a var as subject.v ()" ;
+    mf:action <s_a_var_as_subject.v.ldpatch> ;
+    mf:name "a_var_as_subject.v" ;
+    rdft:approval rdft:Approved .
+
+<#add_empty_graph> a :NegativeSyntaxTest ;
+    rdfs:comment "add empty graph" ;
+    mf:action <s_bad_add_empty_graph.ldpatch> ;
+    mf:name "add_empty_graph" ;
+    rdft:approval rdft:Approved .
+
+<#add_no_period> a :NegativeSyntaxTest ;
+    rdfs:comment "add no period" ;
+    mf:action <s_bad_add_no_period.ldpatch> ;
+    mf:name "add_no_period" ;
+    rdft:approval rdft:Approved .
+
+<#add_var_as_object> a :PositiveSyntaxTest ;
+    rdfs:comment "add var as object" ;
+    mf:action <s_add_var_as_object.ldpatch> ;
+    mf:name "add_var_as_object" ;
+    rdft:approval rdft:Approved .
+
+<#add_var_as_predicate> a :NegativeSyntaxTest ;
+    rdfs:comment "add var as predicate" ;
+    mf:action <s_bad_add_var_as_predicate.ldpatch> ;
+    mf:name "add_var_as_predicate" ;
+    rdft:approval rdft:Approved .
+
+<#add_var_as_subject> a :PositiveSyntaxTest ;
+    rdfs:comment "add var as subject" ;
+    mf:action <s_add_var_as_subject.ldpatch> ;
+    mf:name "add_var_as_subject" ;
+    rdft:approval rdft:Approved .
+
+<#addnew_empty_graph.v> a :NegativeSyntaxTest ;
+    rdfs:comment "addnew empty graph.v ()" ;
+    mf:action <s_bad_addnew_empty_graph.v.ldpatch> ;
+    mf:name "addnew_empty_graph.v" ;
+    rdft:approval rdft:Approved .
+
+<#addnew_no_period.v> a :NegativeSyntaxTest ;
+    rdfs:comment "addnew no period.v ()" ;
+    mf:action <s_bad_addnew_no_period.v.ldpatch> ;
+    mf:name "addnew_no_period.v" ;
+    rdft:approval rdft:Approved .
+
+<#addnew_var_as_object.v> a :PositiveSyntaxTest ;
+    rdfs:comment "addnew var as object.v ()" ;
+    mf:action <s_addnew_var_as_object.v.ldpatch> ;
+    mf:name "addnew_var_as_object.v" ;
+    rdft:approval rdft:Approved .
+
+<#addnew_var_as_predicate.v> a :NegativeSyntaxTest ;
+    rdfs:comment "addnew var as predicate.v ()" ;
+    mf:action <s_bad_addnew_var_as_predicate.v.ldpatch> ;
+    mf:name "addnew_var_as_predicate.v" ;
+    rdft:approval rdft:Approved .
+
+<#addnew_var_as_subject.v> a :PositiveSyntaxTest ;
+    rdfs:comment "addnew var as subject.v ()" ;
+    mf:action <s_addnew_var_as_subject.v.ldpatch> ;
+    mf:name "addnew_var_as_subject.v" ;
+    rdft:approval rdft:Approved .
+
+<#an_empty_graph.v> a :NegativeSyntaxTest ;
+    rdfs:comment "an empty graph.v ()" ;
+    mf:action <s_bad_an_empty_graph.v.ldpatch> ;
+    mf:name "an_empty_graph.v" ;
+    rdft:approval rdft:Approved .
+
+<#an_no_period.v> a :NegativeSyntaxTest ;
+    rdfs:comment "an no period.v ()" ;
+    mf:action <s_bad_an_no_period.v.ldpatch> ;
+    mf:name "an_no_period.v" ;
+    rdft:approval rdft:Approved .
+
+<#an_var_as_object.v> a :PositiveSyntaxTest ;
+    rdfs:comment "an var as object.v ()" ;
+    mf:action <s_an_var_as_object.v.ldpatch> ;
+    mf:name "an_var_as_object.v" ;
+    rdft:approval rdft:Approved .
+
+<#an_var_as_predicate.v> a :NegativeSyntaxTest ;
+    rdfs:comment "an var as predicate.v ()" ;
+    mf:action <s_bad_an_var_as_predicate.v.ldpatch> ;
+    mf:name "an_var_as_predicate.v" ;
+    rdft:approval rdft:Approved .
+
+<#an_var_as_subject.v> a :PositiveSyntaxTest ;
+    rdfs:comment "an var as subject.v ()" ;
+    mf:action <s_an_var_as_subject.v.ldpatch> ;
+    mf:name "an_var_as_subject.v" ;
+    rdft:approval rdft:Approved .
+
+<#bind_no_path> a :NegativeSyntaxTest ;
+    rdfs:comment "bind no path" ;
+    mf:action <s_bad_bind_no_path.ldpatch> ;
+    mf:name "bind_no_path" ;
+    rdft:approval rdft:Approved .
+
+<#bind_no_period> a :NegativeSyntaxTest ;
+    rdfs:comment "bind no period" ;
+    mf:action <s_bad_bind_no_period.ldpatch> ;
+    mf:name "bind_no_period" ;
+    rdft:approval rdft:Approved .
+
+<#bind_no_var> a :NegativeSyntaxTest ;
+    rdfs:comment "bind no var" ;
+    mf:action <s_bad_bind_no_var.ldpatch> ;
+    mf:name "bind_no_var" ;
+    rdft:approval rdft:Approved .
+
+<#bind_var_unicode> a :PositiveSyntaxTest ;
+    rdfs:comment "bind var unicode" ;
+    mf:action <s_bind_var_unicode.ldpatch> ;
+    mf:name "bind_var_unicode" ;
+    rdft:approval rdft:Approved .
+
+<#c_bnode.v> a :NegativeSyntaxTest ;
+    rdfs:comment "c bnode.v ()" ;
+    mf:action <s_bad_c_bnode.v.ldpatch> ;
+    mf:name "c_bnode.v" ;
+    rdft:approval rdft:Approved .
+
+<#c_iri.v> a :NegativeSyntaxTest ;
+    rdfs:comment "c iri.v ()" ;
+    mf:action <s_bad_c_iri.v.ldpatch> ;
+    mf:name "c_iri.v" ;
+    rdft:approval rdft:Approved .
+
+<#c_no_period.v> a :NegativeSyntaxTest ;
+    rdfs:comment "c no period.v ()" ;
+    mf:action <s_bad_c_no_period.v.ldpatch> ;
+    mf:name "c_no_period.v" ;
+    rdft:approval rdft:Approved .
+
+<#c_simple.v> a :PositiveSyntaxTest ;
+    rdfs:comment "c simple.v ()" ;
+    mf:action <s_c_simple.v.ldpatch> ;
+    mf:name "c_simple.v" ;
+    rdft:approval rdft:Approved .
+
+<#cut_bnode> a :NegativeSyntaxTest ;
+    rdfs:comment "cut bnode" ;
+    mf:action <s_bad_cut_bnode.ldpatch> ;
+    mf:name "cut_bnode" ;
+    rdft:approval rdft:Approved .
+
+<#cut_iri> a :NegativeSyntaxTest ;
+    rdfs:comment "cut iri" ;
+    mf:action <s_bad_cut_iri.ldpatch> ;
+    mf:name "cut_iri" ;
+    rdft:approval rdft:Approved .
+
+<#cut_no_period> a :NegativeSyntaxTest ;
+    rdfs:comment "cut no period" ;
+    mf:action <s_bad_cut_no_period.ldpatch> ;
+    mf:name "cut_no_period" ;
+    rdft:approval rdft:Approved .
+
+<#cut_simple> a :PositiveSyntaxTest ;
+    rdfs:comment "cut simple" ;
+    mf:action <s_cut_simple.ldpatch> ;
+    mf:name "cut_simple" ;
+    rdft:approval rdft:Approved .
+
+<#d_empty_graph.v> a :NegativeSyntaxTest ;
+    rdfs:comment "d empty graph.v ()" ;
+    mf:action <s_bad_d_empty_graph.v.ldpatch> ;
+    mf:name "d_empty_graph.v" ;
+    rdft:approval rdft:Approved .
+
+<#d_no_period.v> a :NegativeSyntaxTest ;
+    rdfs:comment "d no period.v ()" ;
+    mf:action <s_bad_d_no_period.v.ldpatch> ;
+    mf:name "d_no_period.v" ;
+    rdft:approval rdft:Approved .
+
+<#d_var_as_object.v> a :PositiveSyntaxTest ;
+    rdfs:comment "d var as object.v ()" ;
+    mf:action <s_d_var_as_object.v.ldpatch> ;
+    mf:name "d_var_as_object.v" ;
+    rdft:approval rdft:Approved .
+
+<#d_var_as_predicate.v> a :NegativeSyntaxTest ;
+    rdfs:comment "d var as predicate.v ()" ;
+    mf:action <s_bad_d_var_as_predicate.v.ldpatch> ;
+    mf:name "d_var_as_predicate.v" ;
+    rdft:approval rdft:Approved .
+
+<#d_var_as_subject.v> a :PositiveSyntaxTest ;
+    rdfs:comment "d var as subject.v ()" ;
+    mf:action <s_d_var_as_subject.v.ldpatch> ;
+    mf:name "d_var_as_subject.v" ;
+    rdft:approval rdft:Approved .
+
+<#de_empty_graph.v> a :NegativeSyntaxTest ;
+    rdfs:comment "de empty graph.v ()" ;
+    mf:action <s_bad_de_empty_graph.v.ldpatch> ;
+    mf:name "de_empty_graph.v" ;
+    rdft:approval rdft:Approved .
+
+<#de_no_period.v> a :NegativeSyntaxTest ;
+    rdfs:comment "de no period.v ()" ;
+    mf:action <s_bad_de_no_period.v.ldpatch> ;
+    mf:name "de_no_period.v" ;
+    rdft:approval rdft:Approved .
+
+<#de_var_as_object.v> a :PositiveSyntaxTest ;
+    rdfs:comment "de var as object.v ()" ;
+    mf:action <s_de_var_as_object.v.ldpatch> ;
+    mf:name "de_var_as_object.v" ;
+    rdft:approval rdft:Approved .
+
+<#de_var_as_predicate.v> a :NegativeSyntaxTest ;
+    rdfs:comment "de var as predicate.v ()" ;
+    mf:action <s_bad_de_var_as_predicate.v.ldpatch> ;
+    mf:name "de_var_as_predicate.v" ;
+    rdft:approval rdft:Approved .
+
+<#de_var_as_subject.v> a :PositiveSyntaxTest ;
+    rdfs:comment "de var as subject.v ()" ;
+    mf:action <s_de_var_as_subject.v.ldpatch> ;
+    mf:name "de_var_as_subject.v" ;
+    rdft:approval rdft:Approved .
+
+<#delete_empty_graph.v> a :NegativeSyntaxTest ;
+    rdfs:comment "delete empty graph.v ()" ;
+    mf:action <s_bad_delete_empty_graph.v.ldpatch> ;
+    mf:name "delete_empty_graph.v" ;
+    rdft:approval rdft:Approved .
+
+<#delete_no_period.v> a :NegativeSyntaxTest ;
+    rdfs:comment "delete no period.v ()" ;
+    mf:action <s_bad_delete_no_period.v.ldpatch> ;
+    mf:name "delete_no_period.v" ;
+    rdft:approval rdft:Approved .
+
+<#delete_var_as_object.v> a :PositiveSyntaxTest ;
+    rdfs:comment "delete var as object.v ()" ;
+    mf:action <s_delete_var_as_object.v.ldpatch> ;
+    mf:name "delete_var_as_object.v" ;
+    rdft:approval rdft:Approved .
+
+<#delete_var_as_predicate.v> a :NegativeSyntaxTest ;
+    rdfs:comment "delete var as predicate.v ()" ;
+    mf:action <s_bad_delete_var_as_predicate.v.ldpatch> ;
+    mf:name "delete_var_as_predicate.v" ;
+    rdft:approval rdft:Approved .
+
+<#delete_var_as_subject.v> a :PositiveSyntaxTest ;
+    rdfs:comment "delete var as subject.v ()" ;
+    mf:action <s_delete_var_as_subject.v.ldpatch> ;
+    mf:name "delete_var_as_subject.v" ;
+    rdft:approval rdft:Approved .
+
+<#deleteexisting_empty_graph.v> a :NegativeSyntaxTest ;
+    rdfs:comment "deleteexisting empty graph.v ()" ;
+    mf:action <s_bad_deleteexisting_empty_graph.v.ldpatch> ;
+    mf:name "deleteexisting_empty_graph.v" ;
+    rdft:approval rdft:Approved .
+
+<#deleteexisting_no_period.v> a :NegativeSyntaxTest ;
+    rdfs:comment "deleteexisting no period.v ()" ;
+    mf:action <s_bad_deleteexisting_no_period.v.ldpatch> ;
+    mf:name "deleteexisting_no_period.v" ;
+    rdft:approval rdft:Approved .
+
+<#deleteexisting_var_as_object.v> a :PositiveSyntaxTest ;
+    rdfs:comment "deleteexisting var as object.v ()" ;
+    mf:action <s_deleteexisting_var_as_object.v.ldpatch> ;
+    mf:name "deleteexisting_var_as_object.v" ;
+    rdft:approval rdft:Approved .
+
+<#deleteexisting_var_as_predicate.v> a :NegativeSyntaxTest ;
+    rdfs:comment "deleteexisting var as predicate.v ()" ;
+    mf:action <s_bad_deleteexisting_var_as_predicate.v.ldpatch> ;
+    mf:name "deleteexisting_var_as_predicate.v" ;
+    rdft:approval rdft:Approved .
+
+<#deleteexisting_var_as_subject.v> a :PositiveSyntaxTest ;
+    rdfs:comment "deleteexisting var as subject.v ()" ;
+    mf:action <s_deleteexisting_var_as_subject.v.ldpatch> ;
+    mf:name "deleteexisting_var_as_subject.v" ;
+    rdft:approval rdft:Approved .
+
+<#empty_patch> a :PositiveSyntaxTest ;
+    rdfs:comment "empty patch" ;
+    mf:action <s_empty_patch.ldpatch> ;
+    mf:name "empty_patch" ;
+    rdft:approval rdft:Approved .
+
+<#empty_patch_comments> a :PositiveSyntaxTest ;
+    rdfs:comment "empty patch comments ()" ;
+    mf:action <s_empty_patch_comments.ldpatch> ;
+    mf:name "empty_patch_comments" ;
+    rdft:approval rdft:Approved .
+
+<#empty_patch_whitespace> a :PositiveSyntaxTest ;
+    rdfs:comment "empty patch whitespace" ;
+    mf:action <s_empty_patch_whitespace.ldpatch> ;
+    mf:name "empty_patch_whitespace" ;
+    rdft:approval rdft:Approved .
+
+<#path_mixed> a :PositiveSyntaxTest ;
+    rdfs:comment "path mixed" ;
+    mf:action <s_path_mixed.ldpatch> ;
+    mf:name "path_mixed" ;
+    rdft:approval rdft:Approved .
+
+<#ul_bnode.v> a :NegativeSyntaxTest ;
+    rdfs:comment "ul bnode.v ()" ;
+    mf:action <s_bad_ul_bnode.v.ldpatch> ;
+    mf:name "ul_bnode.v" ;
+    rdft:approval rdft:Approved .
+
+<#ul_iri.v> a :NegativeSyntaxTest ;
+    rdfs:comment "ul iri.v ()" ;
+    mf:action <s_bad_ul_iri.v.ldpatch> ;
+    mf:name "ul_iri.v" ;
+    rdft:approval rdft:Approved .
+
+<#ul_literal.v> a :NegativeSyntaxTest ;
+    rdfs:comment "ul literal.v ()" ;
+    mf:action <s_bad_ul_literal.v.ldpatch> ;
+    mf:name "ul_literal.v" ;
+    rdft:approval rdft:Approved .
+
+<#ul_no_period.v> a :NegativeSyntaxTest ;
+    rdfs:comment "ul no period.v ()" ;
+    mf:action <s_bad_ul_no_period.v.ldpatch> ;
+    mf:name "ul_no_period.v" ;
+    rdft:approval rdft:Approved .
+
+<#ul_no_predicate.v> a :NegativeSyntaxTest ;
+    rdfs:comment "ul no predicate.v ()" ;
+    mf:action <s_bad_ul_no_predicate.v.ldpatch> ;
+    mf:name "ul_no_predicate.v" ;
+    rdft:approval rdft:Approved .
+
+<#ul_no_slice.v> a :NegativeSyntaxTest ;
+    rdfs:comment "ul no slice.v ()" ;
+    mf:action <s_bad_ul_no_slice.v.ldpatch> ;
+    mf:name "ul_no_slice.v" ;
+    rdft:approval rdft:Approved .
+
+<#ul_no_value.v> a :NegativeSyntaxTest ;
+    rdfs:comment "ul no value.v ()" ;
+    mf:action <s_bad_ul_no_value.v.ldpatch> ;
+    mf:name "ul_no_value.v" ;
+    rdft:approval rdft:Approved .
+
+<#ul_single_index.v> a :NegativeSyntaxTest ;
+    rdfs:comment "ul single index.v ()" ;
+    mf:action <s_bad_ul_single_index.v.ldpatch> ;
+    mf:name "ul_single_index.v" ;
+    rdft:approval rdft:Approved .
+
+<#ul_slice_wrong_order.v> a :NegativeSyntaxTest ;
+    rdfs:comment "ul slice wrong order.v ()" ;
+    mf:action <s_bad_ul_slice_wrong_order.v.ldpatch> ;
+    mf:name "ul_slice_wrong_order.v" ;
+    rdft:approval rdft:Approved .
+
+<#ul_var.v> a :NegativeSyntaxTest ;
+    rdfs:comment "ul var.v ()" ;
+    mf:action <s_bad_ul_var.v.ldpatch> ;
+    mf:name "ul_var.v" ;
+    rdft:approval rdft:Approved .
+
+<#unbound_variable> a :NegativeSyntaxTest ;
+    rdfs:comment "unbound variable" ;
+    mf:action <s_bad_unbound_variable.ldpatch> ;
+    mf:name "unbound_variable" ;
+    rdft:approval rdft:Approved .
+
+<#undeclared_prefix> a :NegativeSyntaxTest ;
+    rdfs:comment "undeclared prefix" ;
+    mf:action <s_bad_undeclared_prefix.ldpatch> ;
+    mf:name "undeclared_prefix" ;
+    rdft:approval rdft:Approved .
+
+<#updatelist_bnode> a :NegativeSyntaxTest ;
+    rdfs:comment "updatelist bnode" ;
+    mf:action <s_bad_updatelist_bnode.ldpatch> ;
+    mf:name "updatelist_bnode" ;
+    rdft:approval rdft:Approved .
+
+<#updatelist_iri> a :NegativeSyntaxTest ;
+    rdfs:comment "updatelist iri" ;
+    mf:action <s_bad_updatelist_iri.ldpatch> ;
+    mf:name "updatelist_iri" ;
+    rdft:approval rdft:Approved .
+
+<#updatelist_literal> a :NegativeSyntaxTest ;
+    rdfs:comment "updatelist literal" ;
+    mf:action <s_bad_updatelist_literal.ldpatch> ;
+    mf:name "updatelist_literal" ;
+    rdft:approval rdft:Approved .
+
+<#updatelist_no_period> a :NegativeSyntaxTest ;
+    rdfs:comment "updatelist no period" ;
+    mf:action <s_bad_updatelist_no_period.ldpatch> ;
+    mf:name "updatelist_no_period" ;
+    rdft:approval rdft:Approved .
+
+<#updatelist_no_predicate> a :NegativeSyntaxTest ;
+    rdfs:comment "updatelist no predicate" ;
+    mf:action <s_bad_updatelist_no_predicate.ldpatch> ;
+    mf:name "updatelist_no_predicate" ;
+    rdft:approval rdft:Approved .
+
+<#updatelist_no_slice> a :NegativeSyntaxTest ;
+    rdfs:comment "updatelist no slice" ;
+    mf:action <s_bad_updatelist_no_slice.ldpatch> ;
+    mf:name "updatelist_no_slice" ;
+    rdft:approval rdft:Approved .
+
+<#updatelist_no_value> a :NegativeSyntaxTest ;
+    rdfs:comment "updatelist no value" ;
+    mf:action <s_bad_updatelist_no_value.ldpatch> ;
+    mf:name "updatelist_no_value" ;
+    rdft:approval rdft:Approved .
+
+<#updatelist_single_index> a :NegativeSyntaxTest ;
+    rdfs:comment "updatelist single index" ;
+    mf:action <s_bad_updatelist_single_index.ldpatch> ;
+    mf:name "updatelist_single_index" ;
+    rdft:approval rdft:Approved .
+
+<#updatelist_slice_wrong_order> a :NegativeSyntaxTest ;
+    rdfs:comment "updatelist slice wrong order" ;
+    mf:action <s_bad_updatelist_slice_wrong_order.ldpatch> ;
+    mf:name "updatelist_slice_wrong_order" ;
+    rdft:approval rdft:Approved .
+
+<#updatelist_var> a :NegativeSyntaxTest ;
+    rdfs:comment "updatelist var" ;
+    mf:action <s_bad_updatelist_var.ldpatch> ;
+    mf:name "updatelist_var" ;
+    rdft:approval rdft:Approved .
+

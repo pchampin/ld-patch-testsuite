@@ -20,5 +20,4 @@
 <http://example.org/foo> <http://example.org/bar> "2.2340000000000000000005"^^<http://www.w3.org/2001/XMLSchema#decimal> .
 <http://example.org/foo> <http://example.org/bar> "2.23400000000000000000005"^^<http://www.w3.org/2001/XMLSchema#decimal> .
 <http://example.org/foo> <http://example.org/bar> "1.2345678901234567890123457890"^^<http://www.w3.org/2001/XMLSchema#decimal> .
-#<http://example.org/something> <http://example.org/completely> <http://example.org/different> .
-#<http://example.org/something> <http://example.org/blank> _:genid000 .
+<http://example.org/something> <http://example.org/completely> <http://example.org/different> .

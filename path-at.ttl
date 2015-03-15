@@ -1,0 +1,19 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix : <http://example.org/> .
+
+:s :p1 _:bs ;
+   :p2 _:bsa, _:bsb ;
+   rdf:first _:bi0 ; rdf:rest ( _:bi1 _:bi2 ) ;
+.
+
+_:bsa :l "a" ; :p1 _:bsas .
+_:bsb :l "b" .
+
+_:bp :p1 :s .
+_:bpa :p2 :s .
+_:bpb :p2 :s .
+
+_:bpa :l "a" ; :p1 _:bpas .
+_:bpb :l "b" .
+
+_:bi1 a :Found.

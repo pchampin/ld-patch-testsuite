@@ -1,0 +1,4 @@
+# GENERATED from s_add_var_as_subject.ldpatch - DO NOT CHANGE
+Bind ?x <http://example.org/s2> .
+
+AddNew { ?x <http://example.org/p2> <http://example.org/o2> } .

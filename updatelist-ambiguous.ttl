@@ -1,0 +1,2 @@
+<#> <http://example.org/vocab#preferredLanguages> ( "lorem" "ipsum" "dolor" "sit" "amet" ),
+  ("mignonne" "allons" "voir" "si" "la" "rose") .

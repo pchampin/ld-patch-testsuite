@@ -1,0 +1,5 @@
+# GENERATED from s_bad_add_var_as_predicate.ldpatch - DO NOT CHANGE
+Bind ?p <http://example.org/p> .
+AddNew {
+  <http://example.org/s> ?p <http://example.org/o>
+} .

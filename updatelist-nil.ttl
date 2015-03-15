@@ -1,0 +1,2 @@
+<#> <http://example.org/vocab#preferredLanguages> () .
+<#2> <http://example.org/vocab#preferredLanguages> () .

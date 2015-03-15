@@ -1,0 +1,7 @@
+Bind ?x <http://example.org/s2> / <http://example.org/p2> .
+
+Delete {
+  <http://example.org/s2> <http://example.org/p2> ?x
+} .
+
+Cut ?x .

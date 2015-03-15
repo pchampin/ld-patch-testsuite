@@ -1,0 +1,2 @@
+# GENERATED from s_bad_add_no_period.ldpatch - DO NOT CHANGE
+AddNew { <http://example.org/s1> <http://example.org/p1> <http://example.org/o1> }

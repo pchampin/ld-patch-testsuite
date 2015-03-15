@@ -1,5 +1,4 @@
 _:b1 <http://a.example/p1> _:b2 .
 _:b2 <http://a.example/p2> <http://a.example/o2> .
 _:b1 <http://a.example/p> <http://a.example/o> .
-#<http://example.org/something> <http://example.org/completely> <http://example.org/different> .
-#<http://example.org/something> <http://example.org/blank> _:genid000 .
+<http://example.org/something> <http://example.org/completely> <http://example.org/different> .

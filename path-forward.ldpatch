@@ -1,1 +1,3 @@
-Bind ?x <http://ex.co/s> / <http://ex.co/p> .
+Bind ?x <http://example.org/s> / <http://example.org/p1> .
+
+Add { ?x a <http://example.org/Found> } .

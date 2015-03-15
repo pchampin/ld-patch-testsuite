@@ -1,0 +1,4 @@
+Bind ?x <http://example.org/s1> .
+Bind ?x <http://example.org/s2> .
+
+Add { ?x <http://example.org/p2> <http://example.org/o2> } .

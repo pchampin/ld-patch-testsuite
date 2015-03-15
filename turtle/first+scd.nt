@@ -5,5 +5,4 @@ _:innerEl1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/
 _:outerEl1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:outerEl2 .
 _:outerEl2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
 _:outerEl2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-#<http://example.org/something> <http://example.org/completely> <http://example.org/different> .
-#<http://example.org/something> <http://example.org/blank> _:genid000 .
+<http://example.org/something> <http://example.org/completely> <http://example.org/different> .

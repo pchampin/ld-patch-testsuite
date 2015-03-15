@@ -1,0 +1,3 @@
+@prefix ns: <http://example.org/another-ns#> .
+@prefix ns: <http://example.org/> .
+Add { ns:s2 ns:p2 ns:o2 } .

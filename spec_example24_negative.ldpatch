@@ -7,11 +7,3 @@ Bind ?b1 schema:Person / ^rdf:type .
 Add {
     ?b1 rdfs:label "b1" .
 } .
-
-Bind ?b3 "W3C/MIT" / ^schema:name .
-Bind ?b1 rdf:type / schema:Person .
-
-Add {
-    ?b2 rdfs:label "b2" .
-    ?b3 rdfs:label "b3" .
-} .

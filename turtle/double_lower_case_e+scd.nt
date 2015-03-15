@@ -1,3 +1,2 @@
 <http://a.example/s> <http://a.example/p> "1e0"^^<http://www.w3.org/2001/XMLSchema#double> .
-#<http://example.org/something> <http://example.org/completely> <http://example.org/different> .
-#<http://example.org/something> <http://example.org/blank> _:genid000 .
+<http://example.org/something> <http://example.org/completely> <http://example.org/different> .

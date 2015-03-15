@@ -1,7 +1,29 @@
-This directory contain tools to automate the creation of some tests.
+This directory contain tools for maintaining the testsuite.
+It is not required by developers wanting to use the testsuite,
+as all generated files are (meant to be) committed in the repository.
+
+- Makefile
+  run all the automation scripts
 
 - tr-turtle-manifest.py
   assuming that turtle/ contains the turtle test suite,
   convert turtle/manifest.ttl into turtle/manifest-ldpatch.ttl
   and produces all the necessary files.
 
+- gen-variants.py 
+  generates variants for syntax tests (of the form s_*.ldpatch):
+  - Add → A, AddNew, AN, Delete, D, DeleteExisting, DE
+  - Cut → C
+  - UpdateList → UL
+  - Bind → B
+
+- gen-syntax-manifest.py
+  generates the manifest-syntax.ttl file,
+  creating a test for each ldpatch file of the form s_*.ldpatch
+  (s_bad_*.ldpatch denoting NegativeSyntaxTest)
+
+- check.py
+  checks that
+  - all ldpatch/ttl/nt files are referenced in a manifest file
+  - all test resource present in manifest files are referenced in mf:entries 
+  - all test resources have a name consistent with their IRI fragment

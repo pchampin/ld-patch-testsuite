@@ -1604,6 +1604,7 @@
     rdft:approval rdft:Approved .
 
 <#turtle-eval-bad-01> a :NegativeEvaluationTest ;
+    :statusCode 422 ;
     rdfs:comment "Bad IRI : good escape, bad charcater (negative evaluation test)" ;
     mf:action [ :base <http://www.w3.org/2013/TurtleTests/turtle-subm-01.ttl> ;
             :data <../scd.nt> ;
@@ -1612,6 +1613,7 @@
     rdft:approval rdft:Approved .
 
 <#turtle-eval-bad-02> a :NegativeEvaluationTest ;
+    :statusCode 422 ;
     rdfs:comment "Bad IRI : hex 3C is < (negative evaluation test)" ;
     mf:action [ :base <http://www.w3.org/2013/TurtleTests/turtle-subm-01.ttl> ;
             :data <../scd.nt> ;
@@ -1620,6 +1622,7 @@
     rdft:approval rdft:Approved .
 
 <#turtle-eval-bad-03> a :NegativeEvaluationTest ;
+    :statusCode 422 ;
     rdfs:comment "Bad IRI : hex 3E is  (negative evaluation test)" ;
     mf:action [ :base <http://www.w3.org/2013/TurtleTests/turtle-subm-01.ttl> ;
             :data <../scd.nt> ;
@@ -2086,7 +2089,7 @@
 <#turtle-syntax-bad-LITERAL2_with_langtag_and_datatype> a :NegativeSyntaxTest ;
     rdfs:comment "Bad number format (negative test)" ;
     mf:action <turtle-syntax-bad-LITERAL2_with_langtag_and_datatype.ldpatch> ;
-    mf:name "turtle-syntax-bad-num-05" ;
+    mf:name "turtle-syntax-bad-LITERAL2_with_langtag_and_datatype" ;
     rdft:approval rdft:Approved .
 
 <#turtle-syntax-bad-blank-label-dot-end> a :NegativeSyntaxTest ;

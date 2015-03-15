@@ -1,2 +1,1 @@
-#<http://example.org/something> <http://example.org/completely> <http://example.org/different> .
-#<http://example.org/something> <http://example.org/blank> _:genid000 .
+<http://example.org/something> <http://example.org/completely> <http://example.org/different> .

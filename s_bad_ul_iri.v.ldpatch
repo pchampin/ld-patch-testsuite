@@ -1,0 +1,2 @@
+# GENERATED from s_bad_updatelist_iri.ldpatch - DO NOT CHANGE
+UL <http://example.org/s1> <http://example.org/p1> 1..2 <http://example.org/o1> .

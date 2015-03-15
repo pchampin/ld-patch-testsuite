@@ -6,189 +6,482 @@
 
 <>  rdf:type mf:Manifest ;
     rdfs:comment "LD-Patch tests" ;
-    mf:include ( <turtle/manifest-ldpatch.ttl> ) ;
+    mf:include (
+        <manifest-syntax.ttl>
+        <turtle/manifest-ldpatch.ttl>
+    ) ;
     mf:entries
     (
-        # positive syntax tests
+        # atomic evaluation tests
         <#empty>
-        <#var-subject>
-        <#var-object>
-        <#var-unicode>
-        <#var-unicode>
+        <#add-1triple>
+        <#add-abbr-1triple>
+        <#addnew-1triple>
+        <#addnew-abbr-1triple>
+        <#delete-1triple>
+        <#delete-abbr-1triple>
+        <#deleteexisting-1triple>
+        <#deleteexisting-abbr-1triple>
+        <#bind>
+        <#bind-abbr>
+        <#bind-overriden>
         <#path-forward>
         <#path-backward>
         <#path-at>
         <#path-unicity>
+        <#path-unicity-fail>
         <#path-filter>
         <#path-filter-equal>
-        <#path-mixed>
+        <#path-starting-with-literal>
+        <#add-noop>
+        <#addnew-noop-fail>
+        <#delete-noop>
+        <#deleteexisting-noop-fail>
+        <#cut>
+        <#cut-abbr>
+        <#cut-fail>
+        <#updatelist>
+        <#updatelist-abbr>
+        <#updatelist-nil>
+        <#updatelist-ambiguous>
+        <#updatelist-not-a-list>
+        <#updatelist-malformed-2first>
+        <#updatelist-malformed-2rest>
+        <#updatelist-exceed-size>
+        <#updatelist-exceed-size-negative>
         <#prefix-simple>
-        <#prefix-empty>
-        <#bind-abbr>
-        <#add-1triple>
-        <#add-abbr-1triple>
-        <#delete-1triple>
-        <#delete-abbr-1triple>
-        ## TODO more...
+        <#prefix-override>
+        <#bnode-fresh>
+        <#bnode-not-deleted>
+        <#bnode-same-id>
 
-        # negative syntax tests
-        <#var-predicate>
-        <#slice-bad1>
-        <#add-empty>
-        <#delete-empty>
-        ## TODO more...
-
-        # positive evaluation tests
-        ## TODO atomic tests...
+        # evaluation tests for the examples in the specification
         <#spec_examples-1-2-3>
         <#spec_examples-4-5-6>
         <#spec_examples-4-7-8>
-        <#spec_examples-4-9-10s>
+        <#spec_examples-4-9-10>
         <#spec_examples-4-11-12>
         <#spec_examples-4-13-14>
         <#spec_examples-4-15-16>
         <#spec_examples-4-17-18>
+        # examples 20 to 23 are part of example 2,
+        # and they are not self-sufficient, so we skip them
         <#spec_example24_positive>
-        <#prefix_override>
-
-        # negative evaluation tests
         <#spec_example24_negative>
-        <#ambiguous_path>
-        ## TODO more examples?
     ) ;
     .
 
 
-<#empty> rdf:type :PositiveSyntaxTest ;
+
+<#empty> rdf:type :PositiveEvaluationTest ;
    mf:name      "empty" ;
-   rdfs:comment "An empty patch is valid" ;
-   mf:action <empty.ldpatch> ;
+   rdfs:comment "Empty patch" ;
+   mf:action [
+     :data  <1triple.nt> ;
+     :patch <s_empty_patch.ldpatch> 
+   ];
+   mf:result <1triple.nt>
    .
 
-<#var-subject> rdf:type :PositiveSyntaxTest ;
-   mf:name      "var-subject" ;
-   rdfs:comment "A variable in subject position" ;
-   mf:action <var-subject.ldpatch> ;
-   .
-
-<#var-object> rdf:type :PositiveSyntaxTest ;
-   mf:name      "var-object" ;
-   rdfs:comment "A variable in object position" ;
-   mf:action <var-object.ldpatch> ;
-   .
-
-<#var-unicode> rdf:type :PositiveSyntaxTest ;
-   mf:name      "var-unicode" ;
-   rdfs:comment "Variable name using a lot of unicode characters" ;
-   mf:action <var-unicode.ldpatch> ;
-   .
-
-<#path-forward> rdf:type :PositiveSyntaxTest ;
-   mf:name      "path-forward" ;
-   rdfs:comment "Path containing a StepForward" ;
-   mf:action <path-forward.ldpatch> ;
-   .
-
-<#path-backward> rdf:type :PositiveSyntaxTest ;
-   mf:name      "path-backward" ;
-   rdfs:comment "Path containing a StepBackward" ;
-   mf:action <path-backward.ldpatch> ;
-   .
-
-<#path-at> rdf:type :PositiveSyntaxTest ;
-   mf:name      "path-at" ;
-   rdfs:comment "Path containing a StepAt" ;
-   mf:action <path-at.ldpatch> ;
-   .
-
-<#path-unicity> rdf:type :PositiveSyntaxTest ;
-   mf:name      "path-unicity" ;
-   rdfs:comment "Path containing a unicity constraint" ;
-   mf:action <path-unicity.ldpatch> ;
-   .
-
-<#path-filter> rdf:type :PositiveSyntaxTest ;
-   mf:name      "path-filter" ;
-   rdfs:comment "Path containing a filter" ;
-   mf:action <path-filter.ldpatch> ;
-   .
-
-<#path-filter-equal> rdf:type :PositiveSyntaxTest ;
-   mf:name      "path-filter-equal" ;
-   rdfs:comment "Path containing a filter with an equal sign" ;
-   mf:action <path-filter-equal.ldpatch> ;
-   .
-
-<#path-mixed> rdf:type :PositiveSyntaxTest ;
-   mf:name      "path-mixed" ;
-   rdfs:comment "Complex path expression mixing many elements" ;
-   mf:action <path-mixed.ldpatch> ;
-   .
-
-<#prefix-simple> rdf:type :PositiveSyntaxTest ;
-   mf:name      "prefix-simple" ;
-   rdfs:comment "Simple prefix declaration" ;
-   mf:action <prefix-simple.ldpatch> ;
-   .
-
-<#prefix-empty> rdf:type :PositiveSyntaxTest ;
-   mf:name      "Empty prefix declaration" ;
-   rdfs:comment "prefix-empty" ;
-   mf:action <prefix-empty.ldpatch> ;
-   .
-
-<#bind-abbr> rdf:type :PositiveSyntaxTest ;
-   mf:name      "bind-abbr" ;
-   rdfs:comment "Abbreviated Bind statement" ;
-   mf:action <bind-abbr.ldpatch> ;
-   .
-
-<#add-1triple> rdf:type :PositiveSyntaxTest ;
+<#add-1triple> rdf:type :PositiveEvaluationTest ;
    mf:name      "add-1triple" ;
    rdfs:comment "Add statement with a single triple" ;
-   mf:action <add-1triple.ldpatch> ;
+   mf:action [
+     :data  <1triple.nt> ;
+     :patch <add-1triple.ldpatch> 
+   ];
+   mf:result <2triples.nt>
    .
 
-<#add-abbr-1triple> rdf:type :PositiveSyntaxTest ;
+<#add-abbr-1triple> rdf:type :PositiveEvaluationTest ;
    mf:name      "add-abbr-1triple" ;
    rdfs:comment "Abbreviated Add statement with a single triple" ;
-   mf:action <add-abbr-1triple.ldpatch> ;
+   mf:action [
+     :data  <1triple.nt> ;
+     :patch <add-abbr-1triple.ldpatch> 
+   ];
+   mf:result <2triples.nt>
    .
 
-<#delete-1triple> rdf:type :PositiveSyntaxTest ;
+<#addnew-1triple> rdf:type :PositiveEvaluationTest ;
+   mf:name      "addnew-1triple" ;
+   rdfs:comment "AddNew statement with a single triple" ;
+   mf:action [
+     :data  <1triple.nt> ;
+     :patch <addnew-1triple.ldpatch> 
+   ];
+   mf:result <2triples.nt>
+   .
+
+<#addnew-abbr-1triple> rdf:type :PositiveEvaluationTest ;
+   mf:name      "addnew-abbr-1triple" ;
+   rdfs:comment "Abbreviated AddNew statement with a single triple" ;
+   mf:action [
+     :data  <1triple.nt> ;
+     :patch <addnew-abbr-1triple.ldpatch> 
+   ];
+   mf:result <2triples.nt>
+   .
+
+<#delete-1triple> rdf:type :PositiveEvaluationTest ;
    mf:name      "delete-1triple" ;
    rdfs:comment "Delete statement with a single triple" ;
-   mf:action <delete-1triple.ldpatch> ;
+   mf:action [
+     :data  <2triples.nt> ;
+     :patch <delete-1triple.ldpatch> 
+   ];
+   mf:result <1triple.nt>
    .
 
-<#delete-abbr-1triple> rdf:type :PositiveSyntaxTest ;
-   mf:name      "delete-1triple" ;
+<#delete-abbr-1triple> rdf:type :PositiveEvaluationTest ;
+   mf:name      "delete-abbr-1triple" ;
    rdfs:comment "Abbreviated Delete statement with a single triple" ;
-   mf:action <delete-abbr-1triple.ldpatch> ;
+   mf:action [
+     :data  <2triples.nt> ;
+     :patch <delete-abbr-1triple.ldpatch> 
+   ];
+   mf:result <1triple.nt>
    .
 
-<#var-predicate> rdf:type :NegativeSyntaxTest ;
-   mf:name      "var-predicate" ;
-   rdfs:comment "A variable in predicate position" ;
-   mf:action <var-predicate.ldpatch> ;
+<#deleteexisting-1triple> rdf:type :PositiveEvaluationTest ;
+   mf:name      "deleteexisting-1triple" ;
+   rdfs:comment "DeleteExisting statement with a single triple" ;
+   mf:action [
+     :data  <2triples.nt> ;
+     :patch <deleteexisting-1triple.ldpatch> 
+   ];
+   mf:result <1triple.nt>
    .
 
-<#slice-bad1> rdf:type :NegativeSyntaxTest ;
-   mf:name      "slice-bad1" ;
-   rdfs:comment "A slice with indices in the wrong order" ;
-   mf:action <slice-bad1.ldpatch> ;
+<#deleteexisting-abbr-1triple> rdf:type :PositiveEvaluationTest ;
+   mf:name      "deleteexisting-abbr-1triple" ;
+   rdfs:comment "Abbreviated DeleteExisting statement with a single triple" ;
+   mf:action [
+     :data  <2triples.nt> ;
+     :patch <deleteexisting-abbr-1triple.ldpatch> 
+   ];
+   mf:result <1triple.nt>
    .
 
-<#add-empty> rdf:type :NegativeSyntaxTest ;
-   mf:name      "add-empty" ;
-   rdfs:comment "Can not add an empty graph" ;
-   mf:action <add-empty.ldpatch> ;
+<#bind> rdf:type :PositiveEvaluationTest ;
+   mf:name      "bind" ;
+   rdfs:comment "Binding statement" ;
+   mf:action [
+     :data  <1triple.nt> ;
+     :patch <bind.ldpatch> 
+   ];
+   mf:result <2triples.nt>
    .
 
-<#delete-empty> rdf:type :NegativeSyntaxTest ;
-   mf:name      "delete-empty" ;
-   rdfs:comment "Can not delete an empty graph" ;
-   mf:action <delete-empty.ldpatch> ;
+<#bind-abbr> rdf:type :PositiveEvaluationTest ;
+   mf:name      "bind-abbr" ;
+   rdfs:comment "Abbreviated Bind statement" ;
+   mf:action [
+     :data  <1triple.nt> ;
+     :patch <bind-abbr.ldpatch> 
+   ];
+   mf:result <2triples.nt>
+   .
+
+<#bind-overriden> rdf:type :PositiveEvaluationTest ;
+   mf:name      "bind-overriden" ;
+   rdfs:comment "Overridden Bind statement" ;
+   mf:action [
+     :data  <1triple.nt> ;
+     :patch <bind-overriden.ldpatch> 
+   ];
+   mf:result <2triples.nt>
+   .
+
+
+<#path-forward> rdf:type :PositiveEvaluationTest ;
+   mf:name      "path-forward" ;
+   rdfs:comment "Path containing a StepForward" ;
+   mf:action [
+     :data  <paths.ttl> ;
+     :patch <path-forward.ldpatch> 
+   ];
+   mf:result <path-forward.ttl>
+   .
+
+<#path-backward> rdf:type :PositiveEvaluationTest ;
+   mf:name      "path-backward" ;
+   rdfs:comment "Path containing a StepBackward" ;
+   mf:action [
+     :data  <paths.ttl> ;
+     :patch <path-backward.ldpatch> 
+   ];
+   mf:result <path-backward.ttl>
+   .
+
+<#path-at> rdf:type :PositiveEvaluationTest ;
+   mf:name      "path-at" ;
+   rdfs:comment "Path containing a StepAt" ;
+   mf:action [
+     :data  <paths.ttl> ;
+     :patch <path-at.ldpatch> 
+   ];
+   mf:result <path-at.ttl>
+   .
+
+<#path-unicity> rdf:type :PositiveEvaluationTest ;
+   mf:name      "path-unicity" ;
+   rdfs:comment "Path containing a succesful unicity constraint" ;
+   mf:action [
+     :data  <paths.ttl> ;
+     :patch <path-unicity.ldpatch> 
+   ];
+   mf:result <paths.ttl>
+   .
+
+<#path-unicity-fail> rdf:type :NegativeEvaluationTest ;
+   mf:name      "path-unicity-fail" ;
+   rdfs:comment "Path containing a failed unicity constraint" ;
+   mf:action [
+     :data  <paths.ttl> ;
+     :patch <path-unicity-fail.ldpatch> 
+   ];
+   :statusCode 422 ;
+   .
+
+<#path-filter> rdf:type :PositiveEvaluationTest ;
+   mf:name      "path-filter" ;
+   rdfs:comment "Path containing a filter" ;
+   mf:action [
+     :data  <paths.ttl> ;
+     :patch <path-filter.ldpatch> 
+   ];
+   mf:result <path-filter.ttl>
+   .
+
+<#path-filter-equal> rdf:type :PositiveEvaluationTest ;
+   mf:name      "path-filter-equal" ;
+   rdfs:comment "Path containing a filter with an equal sign" ;
+   mf:action [
+     :data  <paths.ttl> ;
+     :patch <path-filter-equal.ldpatch> 
+   ];
+   mf:result <path-filter-equal.ttl>
+   .
+
+<#path-starting-with-literal> rdf:type :PositiveEvaluationTest ;
+   mf:name      "path-starting-with-literal" ;
+   rdfs:comment "Path starting with a literal" ;
+   mf:action [
+     :data  <paths.ttl> ;
+     :patch <path-starting-with-literal.ldpatch> 
+   ];
+   mf:result <path-starting-with-literal.ttl>
+   .
+
+<#add-noop> rdf:type :PositiveEvaluationTest ;
+   mf:name      "add-noop" ;
+   rdfs:comment "Add statement with an existing triple" ;
+   mf:action [
+     :data  <2triples.nt> ;
+     :patch <add-1triple.ldpatch> 
+   ];
+   mf:result <2triples.nt>
+   .
+
+<#addnew-noop-fail> rdf:type :NegativeEvaluationTest ;
+   mf:name      "addnew-noop-fail" ;
+   rdfs:comment "AddNew statement with an existing triple, failing" ;
+   mf:action [
+     :data  <2triples.nt> ;
+     :patch <addnew-1triple.ldpatch> 
+   ];
+   :statusCode 422
+   .
+
+<#delete-noop> rdf:type :PositiveEvaluationTest ;
+   mf:name      "delete-noop" ;
+   rdfs:comment "Delete statement with a non-existing triple" ;
+   mf:action [
+     :data  <1triple.nt> ;
+     :patch <delete-1triple.ldpatch> 
+   ];
+   mf:result <1triple.nt>
+   .
+
+<#deleteexisting-noop-fail> rdf:type :NegativeEvaluationTest ;
+   mf:name      "deleteexisting-noop-fail" ;
+   rdfs:comment "DeleteExisting statement with a non-existing triple, failing" ;
+   mf:action [
+     :data  <1triple.nt> ;
+     :patch <deleteexisting-1triple.ldpatch> 
+   ];
+   :statusCode 422
+   .
+
+<#cut> rdf:type :PositiveEvaluationTest ;
+   mf:name      "cut" ;
+   rdfs:comment "Cut" ;
+   mf:action [
+     :data  <paths.ttl> ;
+     :patch <cut.ldpatch> 
+   ];
+   mf:result <cut.ttl>
+   .
+
+<#cut-abbr> rdf:type :PositiveEvaluationTest ;
+   mf:name      "cut-abbr" ;
+   rdfs:comment "Cut abbreviated" ;
+   mf:action [
+     :data  <paths.ttl> ;
+     :patch <cut-abbr.ldpatch> 
+   ];
+   mf:result <cut.ttl>
+   .
+
+<#cut-fail> rdf:type :NegativeEvaluationTest ;
+   mf:name      "cut-fail" ;
+   rdfs:comment "Cut fails if no triple is deleted." ;
+   mf:action [
+     :data  <2triples_blank.nt> ;
+     :patch <cut-fail.ldpatch> 
+   ];
+   :statusCode 422 ;
+   .
+
+<#updatelist> rdf:type :PositiveEvaluationTest ;
+   mf:name      "updatelist" ;
+   rdfs:comment "UpdateList" ;
+   mf:action [
+     :data  <spec_example4.ttl> ;
+     :patch <updatelist.ldpatch> 
+   ];
+   mf:result <updatelist.ttl>
+   .
+
+<#updatelist-abbr> rdf:type :PositiveEvaluationTest ;
+   mf:name      "updatelist-abbr" ;
+   rdfs:comment "UpdateList abbreviated" ;
+   mf:action [
+     :data  <spec_example4.ttl> ;
+     :patch <updatelist-abbr.ldpatch> 
+   ];
+   mf:result <updatelist.ttl>
+   .
+
+<#updatelist-nil> rdf:type :PositiveEvaluationTest ;
+   mf:name      "updatelist-nil" ;
+   rdfs:comment "UpdateList used on an empty list (must not impact other empty lists)" ;
+   mf:action [
+     :data  <updatelist-nil.ttl> ;
+     :patch <updatelist-nil.ldpatch> 
+   ];
+   mf:result <updatelist-nil-result.ttl>
+   .
+
+<#updatelist-ambiguous> rdf:type :NegativeEvaluationTest ;
+   mf:name      "updatelist-ambiguous" ;
+   rdfs:comment "UpdateList fails if its subject-predicate does not point to a single list." ;
+   mf:action [
+     :data  <updatelist-ambiguous.ttl> ;
+     :patch <updatelist.ldpatch> 
+   ];
+   :statusCode 422 ;
+   .
+
+<#updatelist-not-a-list> rdf:type :NegativeEvaluationTest ;
+   mf:name      "updatelist-not-a-list" ;
+   rdfs:comment "UpdateList fails if its subject-predicate points to a non-list." ;
+   mf:action [
+     :data  <updatelist-not-a-list.ttl> ;
+     :patch <updatelist.ldpatch> 
+   ];
+   :statusCode 422 ;
+   .
+
+<#updatelist-malformed-2first> rdf:type :NegativeEvaluationTest ;
+   mf:name      "updatelist-malformed-2first" ;
+   rdfs:comment "UpdateList fails if its subject-predicate points to malformed list (with two rdf:first)." ;
+   mf:action [
+     :data  <updatelist-malformed-2first.ttl> ;
+     :patch <updatelist.ldpatch> 
+   ];
+   :statusCode 422 ;
+   .
+
+<#updatelist-malformed-2rest> rdf:type :NegativeEvaluationTest ;
+   mf:name      "updatelist-malformed-2rest" ;
+   rdfs:comment "UpdateList fails if its subject-predicate points to malformed list (with two rdf:rest)." ;
+   mf:action [
+     :data  <updatelist-malformed-2rest.ttl> ;
+     :patch <updatelist.ldpatch> 
+   ];
+   :statusCode 422 ;
+   .
+
+<#updatelist-exceed-size> rdf:type :NegativeEvaluationTest ;
+   mf:name      "updatelist-exceed-size" ;
+   rdfs:comment "UpdateList with a slice exceeding the size of the list." ;
+   mf:action [
+     :data  <spec_example4.ttl> ;
+     :patch <updatelist-exceed-size.ldpatch> 
+   ];
+   :statusCode 422 ;
+   .
+
+<#updatelist-exceed-size-negative> rdf:type :NegativeEvaluationTest ;
+   mf:name      "updatelist-exceed-size-negative" ;
+   rdfs:comment "UpdateList with a slice (using a negative index) exceeding the size of the list." ;
+   mf:action [
+     :data  <spec_example4.ttl> ;
+     :patch <updatelist-exceed-size-negative.ldpatch> 
+   ];
+   :statusCode 422 ;
+   .
+
+<#prefix-simple> rdf:type :PositiveEvaluationTest ;
+   mf:name      "prefix-simple" ;
+   rdfs:comment "Simple prefix" ;
+   mf:action [
+     :data  <1triple.nt> ;
+     :patch <prefix-simple.ldpatch> 
+   ];
+   mf:result <2triples.nt>
+   .
+
+<#prefix-override> rdf:type :PositiveEvaluationTest ;
+   mf:name      "prefix-override" ;
+   rdfs:comment "Overridden prefix" ;
+   mf:action [
+     :data  <1triple.nt> ;
+     :patch <prefix-override.ldpatch> 
+   ];
+   mf:result <2triples.nt>
+   .
+
+<#bnode-fresh> rdf:type :PositiveEvaluationTest ;
+   mf:name      "bnode-fresh" ;
+   rdfs:comment "A bnode in the patch generates a fresh bnode in the graph, even if the bnode-id in the patch already exisists in the graph source." ;
+   mf:action [
+     :data  <1triple_blank.nt> ;
+     :patch <bnode-fresh.ldpatch> 
+   ];
+   mf:result <2triples_blank.nt>
+   .
+
+<#bnode-not-deleted> rdf:type :PositiveEvaluationTest ;
+   mf:name      "bnode-not-deleted" ;
+   rdfs:comment "A bnode in a Delete statement does not match anything." ;
+   mf:action [
+     :data  <1triple_blank.nt> ;
+     :patch <bnode-no-delete.ldpatch> 
+   ];
+   mf:result <1triple_blank.nt>
+   .
+
+<#bnode-same-id> rdf:type :PositiveEvaluationTest ;
+   mf:name      "bnode-same-id" ;
+   rdfs:comment "A bnode id in the patch always denotes the same bnode." ;
+   mf:action [
+     :data  <1triple_blank.nt> ;
+     :patch <bnode-same-id.ldpatch> 
+   ];
+   mf:result <3triples_blank.nt>
    .
 
 <#spec_examples-1-2-3> rdf:type :PositiveEvaluationTest ;
@@ -288,26 +581,6 @@
         :base  <http://example.com/pathological> ;
         ] ;
    mf:result    <spec_example24_patched.ttl> ;
-   .
-
-<#prefix_override> rdf:type :PositiveEvaluationTest ;
-   mf:name      "prefix_override" ;
-   rdfs:comment "Subsequent prefix" ;
-   mf:action    [
-        :data  <empty.ttl> ;
-        :patch <prefix_override.ldpatch> ;
-        ] ;
-   mf:result    <prefix_override.ttl> ;
-   .
-
-<#ambiguous_path> rdf:type :NegativeEvaluationTest ;
-   mf:name      "ambiguous_path" ;
-   rdfs:comment "Ambigious path applied to Example #1 from the LD-Patch specification" ;
-   mf:action    [
-        :data  <spec_example1.ttl> ;
-        :patch <ambiguous_path.ldpatch> ;
-        ] ;
-   :statusCode 422 ;
    .
 
 <#spec_example24_negative> rdf:type :NegativeEvaluationTest ;

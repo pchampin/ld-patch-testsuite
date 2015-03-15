@@ -1,0 +1,4 @@
+Bind ?p <http://example.org/p> .
+Add {
+  <http://example.org/s> ?p <http://example.org/o>
+} .

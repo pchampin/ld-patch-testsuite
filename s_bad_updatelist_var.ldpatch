@@ -1,0 +1,2 @@
+Bind ?x <http://example.org/s2> / <http://example.org/p2> .
+UpdateList <http://example.org/s1> <http://example.org/p1> 1..2 ?x .

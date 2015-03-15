@@ -1,0 +1,3 @@
+# GENERATED from s_bad_updatelist_no_predicate.ldpatch - DO NOT CHANGE
+UL <http://example.org/s1> <http://example.org/p1> .
+UL ?x 1..2 () .

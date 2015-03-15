@@ -1,0 +1,4 @@
+# GENERATED from s_cut_simple.ldpatch - DO NOT CHANGE
+Bind ?var <http://example.org/s> .
+
+C ?var .

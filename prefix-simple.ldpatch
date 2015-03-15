@@ -1,1 +1,2 @@
-@prefix ns1: <http://ex.com/> .
+@prefix ns: <http://example.org/> .
+Add { ns:s2 ns:p2 ns:o2 } .

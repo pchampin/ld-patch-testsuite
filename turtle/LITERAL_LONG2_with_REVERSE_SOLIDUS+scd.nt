@@ -1,3 +1,2 @@
 <http://example.org/ns#s> <http://example.org/ns#p1> "test-\\" .
-#<http://example.org/something> <http://example.org/completely> <http://example.org/different> .
-#<http://example.org/something> <http://example.org/blank> _:genid000 .
+<http://example.org/something> <http://example.org/completely> <http://example.org/different> .

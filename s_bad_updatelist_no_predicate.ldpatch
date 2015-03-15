@@ -1,0 +1,2 @@
+UpdateList <http://example.org/s1> <http://example.org/p1> .
+UpdateList ?x 1..2 () .

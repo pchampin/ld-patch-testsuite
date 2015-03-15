@@ -21,7 +21,7 @@ def i2p(iri):
     "Convert IRI to path"
     return url2pathname(iri[7:])
 
-MAIN_TESTSUITE_PATH = abspath(dirname(dirname(__file__)))
+MAIN_TESTSUITE_PATH = dirname(dirname(abspath(__file__)))
 MAIN_MANIFEST_PATH = join(MAIN_TESTSUITE_PATH, "manifest.ttl")
 TURTLE_TESTSUITE_PATH = join(MAIN_TESTSUITE_PATH, "turtle")
 IN_MANIFEST_PATH = join(TURTLE_TESTSUITE_PATH, "manifest.ttl")
@@ -93,6 +93,8 @@ def main():
         if otype == NS.PositiveEvaluationTest:
             ntiri, delete_friendly = nt2nt(gin.value(ientry, MF.result))
             gout.add((oentry, MF.result, ntiri))
+        elif otype == NS.NegativeEvaluationTest:
+            gout.add((oentry, NS.statusCode, Literal(422)))
 
         iaction = gin.value(ientry, MF.action)
         if otype in { NS.NegativeSyntaxTest, NS.PositiveSyntaxTest }:

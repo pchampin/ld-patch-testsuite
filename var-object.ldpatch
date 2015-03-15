@@ -1,4 +1,0 @@
-Bind ?o <http://www.w3.org/2013/TurtleTests/o> .
-Add {
-<http://www.w3.org/2013/TurtleTests/s> <http://www.w3.org/2013/TurtleTests/p> ?o .
-} .
