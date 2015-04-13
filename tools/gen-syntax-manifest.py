@@ -29,7 +29,6 @@ HASH = Namespace(MANIFEST_SYNTAX_IRI + "#")
 FILE = Namespace(URIRef("file://{}/".format(TESTSUITE_PATH)))
 NS = Namespace(MANIFEST_IRI + "#")
 MF = Namespace("http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#")
-RDFT = Namespace("http://www.w3.org/ns/rdftest#")
 
 PATTERN = regex(r'^s_(?P<bad>bad_)?(?P<name>.*)\.ldpatch$')
 
@@ -58,7 +57,6 @@ def main():
         g.add((entry, RDF.type, etype))
         g.add((entry, MF.name, Literal(name)))
         g.add((entry, RDFS.comment, Literal(comment)))
-        g.add((entry, RDFT.approval, RDFT.Approved))
         g.add((entry, MF.action, FILE[filename]))
         entries.append(entry)
 
@@ -67,7 +65,6 @@ def main():
     g.add((MANIFEST_SYNTAX_IRI, MF.entries, listname))
 
     g.namespace_manager.bind("mf", MF)
-    g.namespace_manager.bind("rdft", RDFT)
     g.namespace_manager.bind("", NS)
     outttl = g.serialize(format="turtle")
     outttl = (outttl.decode("utf-8") # relativize all IRIS that need to
