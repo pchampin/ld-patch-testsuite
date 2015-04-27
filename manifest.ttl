@@ -490,7 +490,7 @@
    mf:action    [
         :data  <spec_example1.ttl> ;
         :patch <spec_example2.ldpatch> ;
-        :base  <http://example.com/timbl> ;
+        :base  "http://example.com/timbl"^^xsd:anyURI ;
         ] ;
    mf:result    <spec_example3.ttl> ;
    .
@@ -501,7 +501,7 @@
    mf:action    [
         :data  <spec_example4.ttl> ;
         :patch <spec_example5.ldpatch> ;
-        :base  <http://example.com/timbl> ;
+        :base  "http://example.com/timbl"^^xsd:anyURI ;
         ] ;
    mf:result    <spec_example6.ttl> ;
    .
@@ -512,7 +512,7 @@
    mf:action    [
         :data  <spec_example4.ttl> ;
         :patch <spec_example7.ldpatch> ;
-        :base  <http://example.com/timbl> ;
+        :base  "http://example.com/timbl"^^xsd:anyURI ;
         ] ;
    mf:result    <spec_example8.ttl> ;
    .
@@ -523,7 +523,7 @@
    mf:action    [
         :data  <spec_example4.ttl> ;
         :patch <spec_example9.ldpatch> ;
-        :base  <http://example.com/timbl> ;
+        :base  "http://example.com/timbl"^^xsd:anyURI ;
         ] ;
    mf:result    <spec_example10.ttl> ;
    .
@@ -534,7 +534,7 @@
    mf:action    [
         :data  <spec_example4.ttl> ;
         :patch <spec_example11.ldpatch> ;
-        :base  <http://example.com/timbl> ;
+        :base  "http://example.com/timbl"^^xsd:anyURI ;
         ] ;
    mf:result    <spec_example12.ttl> ;
    .
@@ -545,7 +545,7 @@
    mf:action    [
         :data  <spec_example4.ttl> ;
         :patch <spec_example13.ldpatch> ;
-        :base  <http://example.com/timbl> ;
+        :base  "http://example.com/timbl"^^xsd:anyURI ;
         ] ;
    mf:result    <spec_example14.ttl> ;
    .
@@ -556,7 +556,7 @@
    mf:action    [
         :data  <spec_example4.ttl> ;
         :patch <spec_example15.ldpatch> ;
-        :base  <http://example.com/timbl> ;
+        :base  "http://example.com/timbl"^^xsd:anyURI ;
         ] ;
    mf:result    <spec_example16.ttl> ;
    .
@@ -567,7 +567,7 @@
    mf:action    [
         :data  <spec_example4.ttl> ;
         :patch <spec_example17.ldpatch> ;
-        :base  <http://example.com/timbl> ;
+        :base  "http://example.com/timbl"^^xsd:anyURI ;
         ] ;
    mf:result    <spec_example18.ttl> ;
    .
@@ -578,7 +578,7 @@
    mf:action    [
         :data  <spec_example24.ttl> ;
         :patch <spec_example24_positive.ldpatch> ;
-        :base  <http://example.com/pathological> ;
+        :base  "http://example.com/pathological"^^xsd:anyURI ;
         ] ;
    mf:result    <spec_example24_patched.ttl> ;
    .
@@ -629,7 +629,7 @@
 :base rdf:type rdf:Property ;
     rdfs:comment "Base IRI for data and patch, if different from actual location" ;
     # rdfs:domain  ?? ; ## object of the mf:action property
-    # rdfs:range   ?? ; ## IRI
+    rdfs:range xsd:anyURI ;
     .	
 
 :statusCode rdf:type rdf:Property ;
