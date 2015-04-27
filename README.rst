@@ -131,7 +131,7 @@ indicating which HTTP status an LD Patch server must return.
 Implementation reports
 ======================
 
-Implementation reports will be available `there </pchampin/ld-patch-testsuite/tree/master/reports>`_ .
+Implementation reports will be available `there <./reports>`_ .
 
 Instructions for submitting implementation reports
 --------------------------------------------------
