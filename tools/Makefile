@@ -2,7 +2,6 @@ all: ../turtle/manifest-ldpatch.ttl
 	python gen-variants.py
 	python gen-syntax-manifest.py
 	python check.py
-	python gen-reports-README.py > ../reports/README.rst
 
 ../turtle/manifest-ldpatch.ttl: ../turtle/manifest.ttl
 	python tr-turtle-manifest.py
@@ -17,4 +16,8 @@ clean-turtle:
 	else rm -f ../turtle/manifest-ldpatch.ttl ../turtle/*.ldpatch ../turtle/*+scd.nt ; \
 	fi
 
-.PHONY: all clean-variants clean-turtle
+impl-report:
+	python gen-impl-report.py > ../pages/impl-report.html
+	@echo /!\ Still need to push gh-pages
+
+.PHONY: all clean-variants clean-turtle impl-report

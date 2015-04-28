@@ -45,7 +45,7 @@ def main():
 
     g = load_graph()
     softwares, tests, report = prepare_data(g)
-    generate_rst(g, softwares, tests, report)
+    generate_html(g, softwares, tests, report)
 
 
 def load_graph():
@@ -124,87 +124,119 @@ def prepare_data(g):
     return softwares, tests, report
 
 
-def generate_rst(g, softwares, tests, report):
+def generate_html(g, softwares, tests, report):
     """Generate the ReST document of the report"""
 
-    print "LD Patch Implementation Reports"
-    print "==============================="
-    print
-    print "Reports"
-    print "+++++++"
-    print ".. list-table::"
-    print "    :stub-columns: 2"
-    print "    :header-rows: 2"
-    print
-    print "    * -  "
-    print "      -  "
+    print """<!html>
+    <html>
+    <head>
+      <meta charset="utf-8"/>
+      <title>LD Patch Implementation Reports</title>
+      <style type="text/css">
+        th.test {
+          text-align: right;
+        }
+        td.passed {
+          text-align: center;
+          background-color: darkGreen;
+          color: white;
+        }
+        td.failed {
+          text-align: center;
+          background-color: red;
+          color: black;
+        }
+        td.canttell {
+          text-align: center;
+          background-color: transparent;
+          color: darkGrey;
+        }
+        table.box {
+            width: 100%;
+            border: 1px solid black;
+            margin-bottom: 1ex;
+        }
+        table.box th {
+            width: 10em;
+        }
+
+      </style>
+    </head>
+    <body>
+      <h1>LD Patch Implementation Reports</h1>
+
+      <p>This is the implementation report for
+         the <a href="http://www.w3.org/TR/ldpatch">Linked Data Patch Format</a>.
+         Instructions for submitting new implementations are
+         <a href="https://github.com/pchampin/ld-patch-testsuite/blob/master/README.rst"
+             >available here</a>.
+         The raw data of the reports are
+         <a href="https://github.com/pchampin/ld-patch-testsuite/tree/master/reports"
+             >available here</a>.</p>"""
+
+    print """
+      <h2>Reports</h2>
+      <table>
+        <tr><th></th><th></th>"""
 
     for _, name, _, _, _ in softwares:
-        print "      - `{name}`_".format(**locals())
+        print """<td><a href="#{name}">{name}</a></td>""".format(**locals())
+    print """</tr>"""
 
-    print "    * -  "
-    print "      - #passed"
+    print """<tr><th></th><th>#passed</th>"""
     for _, _, _, _, passed in softwares:
-        print "      - {passed}".format(**locals())
+        print """<td>{passed}</td>""".format(**locals())
+    print """</tr>"""
 
     for test in tests:
         report_row = report.get(test, {})
         name = g.value(test, MF.name)
         passed = len([ val for val in report_row.values() if val == EARL.passed ])
-        print "    * - `{name}`_".format(**locals())
-        print "      - {passed}".format(**locals())
+        print """<tr><th class="test" id="{name}-reports">""" \
+              """<a href="#{name}-desc">{name}</a></th>""" \
+              """<th>{passed}</th>""".format(**locals()),
 
         for software, _, _, _, _ in softwares:
             outcome = report_row.get(software)
             if outcome == EARL.passed:
-                outcome = "passed"
+                cls = "passed"
+                val = "✓"
             elif outcome == EARL.failed:
-                outcome = "failed"
+                cls = "failed"
+                val = "✗"
             else:
-                outcome = "canttell"
-            print "      - |{outcome}|".format(**locals())
+                cls = "canttell"
+                val = "?"
+            print """<td class="{cls}">{val}</td>""".format(**locals())
+        print """</tr>"""
+    print """</table>"""
 
-    print
-    print "Implementations"
-    print "+++++++++++++++"
+    print """<h2>Implementation</h2>"""
 
     total = len(tests)
     for software, name, homepage, description, passed in softwares:
-        print ".. _{name}:".format(**locals())
-        print """.. list-table::
-                    :widths: 1 7
-                    :stub-columns: 1
+        print """<table class="box" id="{name}">
+                 <tr><th>Name</th><td><a href="#{name}">{name}</a></td></tr>
+                 <tr><th>Description</th><td>{description}</td></tr>
+                 <tr><th>Homepage</th>
+                     <td><tt><a href="{homepage}">{homepage}</a></tt></td></tr>
+                 <tr><th>Passed</th><td>{passed}/{total}</td></tr>
+                 </table>""".format(**locals())
 
-                    * - Name
-                      - `{name}`_
-                    * - Description
-                      - {description}
-                    * - Homepage
-                      - {homepage}
-                    * - Passed
-                      - {passed}/{total}""".format(**locals())
+    print """<h2>Tests</h2>"""
 
-    print
-    print "Tests"
-    print "+++++"
-
+    total = len(softwares)
     for test in tests:
         name = g.value(test, MF.name)
         description = g.value(test, RDFS.comment).encode("utf-8")
-        print ".. _{name}:".format(**locals())
-        print """.. list-table::
-                     :widths: 1 7
-                     :stub-columns: 1
-             
-                     * - Name
-                       - `{name}`_
-                     * - Description
-                       - {description}""".format(**locals())
+        passed = len([ val for val in report.get(test, {}).values() if val == EARL.passed ])
+        print """<table class="box" id="{name}-desc">
+                 <tr><th>Name</th><td><a href="#{name}-desc">{name}</a></td></tr>
+                 <tr><th>Description</th><td>{description}</td></tr>
+                 <tr><th>Passed</th>
+                     <td><a href="#{name}-reports">{passed}/{total}</a></td></tr>
+                 </table>""".format(**locals())
 
-    print
-    print ".. |passed| replace:: ✓\n"
-    print ".. |failed| replace:: ✗\n"
-    print ".. |canttell| replace:: ?\n"
 
 
 if __name__ == "__main__":

@@ -28,5 +28,5 @@ as all generated files are (meant to be) committed in the repository.
   - all test resource present in manifest files are referenced in mf:entries 
   - all test resources have a name consistent with their IRI fragment
 
-- gen-reports-README.py
-  generates the README.rst file in the reports/ directory.
+- gen-impl-report.py
+  generates the HTML implementation report

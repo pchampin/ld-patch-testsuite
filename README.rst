@@ -131,7 +131,7 @@ indicating which HTTP status an LD Patch server must return.
 Implementation reports
 ======================
 
-Implementation reports will be available `there <./reports>`_ .
+Implementation reports will be available `there <http://pchampin.github.io/ld-patch-testsuite/impl-report.html>`_ .
 
 Instructions for submitting implementation reports
 --------------------------------------------------
@@ -143,10 +143,6 @@ referencing the test resource from the associated manifest and the test subject 
 Note that, in that file, the base IRI of the test suite
 (and hence of every indivudual test) must be 
 https://raw.githubusercontent.com/pchampin/ld-patch-testsuite/master/ .
-
-.. warning::
-
-   Should the test-suite be hosted somehere else?
 
 An example test entry is be the following:
 
