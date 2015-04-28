@@ -18,6 +18,6 @@ clean-turtle:
 
 impl-report:
 	python gen-impl-report.py > ../pages/impl-report.html
-	@echo /!\ Still need to push gh-pages
+	@echo /!\\ Still need to push gh-pages
 
 .PHONY: all clean-variants clean-turtle impl-report

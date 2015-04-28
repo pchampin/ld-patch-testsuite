@@ -185,7 +185,7 @@ def generate_html(g, softwares, tests, report):
 
     print """<tr><th></th><th>#passed</th>"""
     for _, _, _, _, passed in softwares:
-        print """<td>{passed}</td>""".format(**locals())
+        print """<th>{passed}</th>""".format(**locals())
     print """</tr>"""
 
     for test in tests:
