@@ -27,3 +27,6 @@ as all generated files are (meant to be) committed in the repository.
   - all ldpatch/ttl/nt files are referenced in a manifest file
   - all test resource present in manifest files are referenced in mf:entries 
   - all test resources have a name consistent with their IRI fragment
+
+- gen-reports-README.py
+  generates the README.rst file in the reports/ directory.
