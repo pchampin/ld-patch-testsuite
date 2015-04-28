@@ -211,7 +211,7 @@ def generate_html(g, softwares, tests, report):
         print """</tr>"""
     print """</table>"""
 
-    print """<h2>Implementation</h2>"""
+    print """<h2>Implementations</h2>"""
 
     total = len(tests)
     for software, name, homepage, description, passed in softwares:
