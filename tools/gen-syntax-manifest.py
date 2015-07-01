@@ -60,6 +60,8 @@ def main():
         g.add((entry, MF.action, FILE[filename]))
         entries.append(entry)
 
+    entries.sort()
+
     listname = BNode()
     Collection(g, listname, entries)
     g.add((MANIFEST_SYNTAX_IRI, MF.entries, listname))
