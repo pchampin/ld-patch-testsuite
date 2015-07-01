@@ -182,7 +182,7 @@ def ttl2patch(iri, revext="", command="Add"):
     return ret
 
 def nt2nt(iri):
-    "Convert an nt file into an ldpatch file."
+    "Make an augmented version of an NT file, and check if it's del-friendly."
     retiri = URIRef(iri.replace(".nt", "%2Bscd.nt"))
     delete_friendly = True
 
