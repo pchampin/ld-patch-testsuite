@@ -60,8 +60,9 @@ def gen_variant(src_filename, src_op, dst_op):
         return
 
     with open(dst_fullpath, "w") as dstf:
-        dstf.write("# GENERATED from {} - DO NOT CHANGE\n"
-                   .format(src_filename))
+        #dstf.write("#GENERATED from {} - DO NOT CHANGE\n"
+        #           .format(src_filename))
+        dstf.write("@prefix THIS_FILE_WAS_GENERATED__DO_NOT_CHANGE_IT: <>.\n")
         with open(src_fullpath) as srcf:
             for line in srcf:
                 if line.startswith(src_op):

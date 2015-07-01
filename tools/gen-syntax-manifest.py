@@ -79,10 +79,6 @@ def main():
 def make_comment(filename, name, path=TESTSUITE_PATH):
     "Build the comment for a given test file"
     comment = name.replace("_", " ")
-    with open(join(path, filename)) as f:
-        firstline = f.readline()
-    if firstline[:1] == "#":
-        comment += " ({})".format(firstline[:0].strip())
     return comment
 
 if __name__ == "__main__":

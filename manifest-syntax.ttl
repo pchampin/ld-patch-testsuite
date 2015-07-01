@@ -7,30 +7,30 @@
 
 <> a mf:Manifest ;
     rdfs:comment "Syntax tests for LD Patch" ;
-    mf:entries ( <#a_empty_graph.v> <#a_no_period.v> <#a_var_as_object.v> <#a_var_as_predicate.v> <#a_var_as_subject.v> <#add_empty_graph> <#add_no_period> <#add_var_as_object> <#add_var_as_predicate> <#add_var_as_subject> <#addnew_empty_graph.v> <#addnew_no_period.v> <#addnew_var_as_object.v> <#addnew_var_as_predicate.v> <#addnew_var_as_subject.v> <#an_empty_graph.v> <#an_no_period.v> <#an_var_as_object.v> <#an_var_as_predicate.v> <#an_var_as_subject.v> <#bind_no_path> <#bind_no_period> <#bind_no_var> <#bind_var_unicode> <#c_bnode.v> <#c_iri.v> <#c_no_period.v> <#c_simple.v> <#cut_bnode> <#cut_iri> <#cut_no_period> <#cut_simple> <#d_empty_graph.v> <#d_no_period.v> <#d_var_as_object.v> <#d_var_as_predicate.v> <#d_var_as_subject.v> <#de_empty_graph.v> <#de_no_period.v> <#de_var_as_object.v> <#de_var_as_predicate.v> <#de_var_as_subject.v> <#delete_empty_graph.v> <#delete_no_period.v> <#delete_var_as_object.v> <#delete_var_as_predicate.v> <#delete_var_as_subject.v> <#deleteexisting_empty_graph.v> <#deleteexisting_no_period.v> <#deleteexisting_var_as_object.v> <#deleteexisting_var_as_predicate.v> <#deleteexisting_var_as_subject.v> <#empty_patch> <#empty_patch_comments> <#empty_patch_whitespace> <#path_mixed> <#ul_bnode.v> <#ul_iri.v> <#ul_literal.v> <#ul_no_period.v> <#ul_no_predicate.v> <#ul_no_slice.v> <#ul_no_value.v> <#ul_single_index.v> <#ul_slice_wrong_order.v> <#ul_var.v> <#unbound_variable> <#undeclared_prefix> <#updatelist_bnode> <#updatelist_iri> <#updatelist_literal> <#updatelist_no_period> <#updatelist_no_predicate> <#updatelist_no_slice> <#updatelist_no_value> <#updatelist_single_index> <#updatelist_slice_wrong_order> <#updatelist_var> ) .
+    mf:entries ( <#a_empty_graph.v> <#a_no_period.v> <#a_var_as_object.v> <#a_var_as_predicate.v> <#a_var_as_subject.v> <#add_empty_graph> <#add_no_period> <#add_var_as_object> <#add_var_as_predicate> <#add_var_as_subject> <#addnew_empty_graph.v> <#addnew_no_period.v> <#addnew_var_as_object.v> <#addnew_var_as_predicate.v> <#addnew_var_as_subject.v> <#an_empty_graph.v> <#an_no_period.v> <#an_var_as_object.v> <#an_var_as_predicate.v> <#an_var_as_subject.v> <#bind_no_path> <#bind_no_period> <#bind_no_var> <#bind_var_unicode> <#c_bnode.v> <#c_iri.v> <#c_no_period.v> <#c_simple.v> <#cut_bnode> <#cut_iri> <#cut_no_period> <#cut_simple> <#d_empty_graph.v> <#d_no_period.v> <#d_var_as_object.v> <#d_var_as_predicate.v> <#d_var_as_subject.v> <#de_empty_graph.v> <#de_no_period.v> <#de_var_as_object.v> <#de_var_as_predicate.v> <#de_var_as_subject.v> <#delete_empty_graph.v> <#delete_no_period.v> <#delete_var_as_object.v> <#delete_var_as_predicate.v> <#delete_var_as_subject.v> <#deleteexisting_empty_graph.v> <#deleteexisting_no_period.v> <#deleteexisting_var_as_object.v> <#deleteexisting_var_as_predicate.v> <#deleteexisting_var_as_subject.v> <#empty_patch> <#empty_patch_whitespace> <#path_mixed> <#ul_bnode.v> <#ul_iri.v> <#ul_literal.v> <#ul_no_period.v> <#ul_no_predicate.v> <#ul_no_slice.v> <#ul_no_value.v> <#ul_single_index.v> <#ul_slice_wrong_order.v> <#ul_var.v> <#unbound_variable> <#undeclared_prefix> <#updatelist_bnode> <#updatelist_iri> <#updatelist_literal> <#updatelist_no_period> <#updatelist_no_predicate> <#updatelist_no_slice> <#updatelist_no_value> <#updatelist_single_index> <#updatelist_slice_wrong_order> <#updatelist_var> ) .
 
 <#a_empty_graph.v> a :NegativeSyntaxTest ;
-    rdfs:comment "a empty graph.v ()" ;
+    rdfs:comment "a empty graph.v" ;
     mf:action <s_bad_a_empty_graph.v.ldpatch> ;
     mf:name "a_empty_graph.v" .
 
 <#a_no_period.v> a :NegativeSyntaxTest ;
-    rdfs:comment "a no period.v ()" ;
+    rdfs:comment "a no period.v" ;
     mf:action <s_bad_a_no_period.v.ldpatch> ;
     mf:name "a_no_period.v" .
 
 <#a_var_as_object.v> a :PositiveSyntaxTest ;
-    rdfs:comment "a var as object.v ()" ;
+    rdfs:comment "a var as object.v" ;
     mf:action <s_a_var_as_object.v.ldpatch> ;
     mf:name "a_var_as_object.v" .
 
 <#a_var_as_predicate.v> a :NegativeSyntaxTest ;
-    rdfs:comment "a var as predicate.v ()" ;
+    rdfs:comment "a var as predicate.v" ;
     mf:action <s_bad_a_var_as_predicate.v.ldpatch> ;
     mf:name "a_var_as_predicate.v" .
 
 <#a_var_as_subject.v> a :PositiveSyntaxTest ;
-    rdfs:comment "a var as subject.v ()" ;
+    rdfs:comment "a var as subject.v" ;
     mf:action <s_a_var_as_subject.v.ldpatch> ;
     mf:name "a_var_as_subject.v" .
 
@@ -60,52 +60,52 @@
     mf:name "add_var_as_subject" .
 
 <#addnew_empty_graph.v> a :NegativeSyntaxTest ;
-    rdfs:comment "addnew empty graph.v ()" ;
+    rdfs:comment "addnew empty graph.v" ;
     mf:action <s_bad_addnew_empty_graph.v.ldpatch> ;
     mf:name "addnew_empty_graph.v" .
 
 <#addnew_no_period.v> a :NegativeSyntaxTest ;
-    rdfs:comment "addnew no period.v ()" ;
+    rdfs:comment "addnew no period.v" ;
     mf:action <s_bad_addnew_no_period.v.ldpatch> ;
     mf:name "addnew_no_period.v" .
 
 <#addnew_var_as_object.v> a :PositiveSyntaxTest ;
-    rdfs:comment "addnew var as object.v ()" ;
+    rdfs:comment "addnew var as object.v" ;
     mf:action <s_addnew_var_as_object.v.ldpatch> ;
     mf:name "addnew_var_as_object.v" .
 
 <#addnew_var_as_predicate.v> a :NegativeSyntaxTest ;
-    rdfs:comment "addnew var as predicate.v ()" ;
+    rdfs:comment "addnew var as predicate.v" ;
     mf:action <s_bad_addnew_var_as_predicate.v.ldpatch> ;
     mf:name "addnew_var_as_predicate.v" .
 
 <#addnew_var_as_subject.v> a :PositiveSyntaxTest ;
-    rdfs:comment "addnew var as subject.v ()" ;
+    rdfs:comment "addnew var as subject.v" ;
     mf:action <s_addnew_var_as_subject.v.ldpatch> ;
     mf:name "addnew_var_as_subject.v" .
 
 <#an_empty_graph.v> a :NegativeSyntaxTest ;
-    rdfs:comment "an empty graph.v ()" ;
+    rdfs:comment "an empty graph.v" ;
     mf:action <s_bad_an_empty_graph.v.ldpatch> ;
     mf:name "an_empty_graph.v" .
 
 <#an_no_period.v> a :NegativeSyntaxTest ;
-    rdfs:comment "an no period.v ()" ;
+    rdfs:comment "an no period.v" ;
     mf:action <s_bad_an_no_period.v.ldpatch> ;
     mf:name "an_no_period.v" .
 
 <#an_var_as_object.v> a :PositiveSyntaxTest ;
-    rdfs:comment "an var as object.v ()" ;
+    rdfs:comment "an var as object.v" ;
     mf:action <s_an_var_as_object.v.ldpatch> ;
     mf:name "an_var_as_object.v" .
 
 <#an_var_as_predicate.v> a :NegativeSyntaxTest ;
-    rdfs:comment "an var as predicate.v ()" ;
+    rdfs:comment "an var as predicate.v" ;
     mf:action <s_bad_an_var_as_predicate.v.ldpatch> ;
     mf:name "an_var_as_predicate.v" .
 
 <#an_var_as_subject.v> a :PositiveSyntaxTest ;
-    rdfs:comment "an var as subject.v ()" ;
+    rdfs:comment "an var as subject.v" ;
     mf:action <s_an_var_as_subject.v.ldpatch> ;
     mf:name "an_var_as_subject.v" .
 
@@ -130,22 +130,22 @@
     mf:name "bind_var_unicode" .
 
 <#c_bnode.v> a :NegativeSyntaxTest ;
-    rdfs:comment "c bnode.v ()" ;
+    rdfs:comment "c bnode.v" ;
     mf:action <s_bad_c_bnode.v.ldpatch> ;
     mf:name "c_bnode.v" .
 
 <#c_iri.v> a :NegativeSyntaxTest ;
-    rdfs:comment "c iri.v ()" ;
+    rdfs:comment "c iri.v" ;
     mf:action <s_bad_c_iri.v.ldpatch> ;
     mf:name "c_iri.v" .
 
 <#c_no_period.v> a :NegativeSyntaxTest ;
-    rdfs:comment "c no period.v ()" ;
+    rdfs:comment "c no period.v" ;
     mf:action <s_bad_c_no_period.v.ldpatch> ;
     mf:name "c_no_period.v" .
 
 <#c_simple.v> a :PositiveSyntaxTest ;
-    rdfs:comment "c simple.v ()" ;
+    rdfs:comment "c simple.v" ;
     mf:action <s_c_simple.v.ldpatch> ;
     mf:name "c_simple.v" .
 
@@ -170,102 +170,102 @@
     mf:name "cut_simple" .
 
 <#d_empty_graph.v> a :NegativeSyntaxTest ;
-    rdfs:comment "d empty graph.v ()" ;
+    rdfs:comment "d empty graph.v" ;
     mf:action <s_bad_d_empty_graph.v.ldpatch> ;
     mf:name "d_empty_graph.v" .
 
 <#d_no_period.v> a :NegativeSyntaxTest ;
-    rdfs:comment "d no period.v ()" ;
+    rdfs:comment "d no period.v" ;
     mf:action <s_bad_d_no_period.v.ldpatch> ;
     mf:name "d_no_period.v" .
 
 <#d_var_as_object.v> a :PositiveSyntaxTest ;
-    rdfs:comment "d var as object.v ()" ;
+    rdfs:comment "d var as object.v" ;
     mf:action <s_d_var_as_object.v.ldpatch> ;
     mf:name "d_var_as_object.v" .
 
 <#d_var_as_predicate.v> a :NegativeSyntaxTest ;
-    rdfs:comment "d var as predicate.v ()" ;
+    rdfs:comment "d var as predicate.v" ;
     mf:action <s_bad_d_var_as_predicate.v.ldpatch> ;
     mf:name "d_var_as_predicate.v" .
 
 <#d_var_as_subject.v> a :PositiveSyntaxTest ;
-    rdfs:comment "d var as subject.v ()" ;
+    rdfs:comment "d var as subject.v" ;
     mf:action <s_d_var_as_subject.v.ldpatch> ;
     mf:name "d_var_as_subject.v" .
 
 <#de_empty_graph.v> a :NegativeSyntaxTest ;
-    rdfs:comment "de empty graph.v ()" ;
+    rdfs:comment "de empty graph.v" ;
     mf:action <s_bad_de_empty_graph.v.ldpatch> ;
     mf:name "de_empty_graph.v" .
 
 <#de_no_period.v> a :NegativeSyntaxTest ;
-    rdfs:comment "de no period.v ()" ;
+    rdfs:comment "de no period.v" ;
     mf:action <s_bad_de_no_period.v.ldpatch> ;
     mf:name "de_no_period.v" .
 
 <#de_var_as_object.v> a :PositiveSyntaxTest ;
-    rdfs:comment "de var as object.v ()" ;
+    rdfs:comment "de var as object.v" ;
     mf:action <s_de_var_as_object.v.ldpatch> ;
     mf:name "de_var_as_object.v" .
 
 <#de_var_as_predicate.v> a :NegativeSyntaxTest ;
-    rdfs:comment "de var as predicate.v ()" ;
+    rdfs:comment "de var as predicate.v" ;
     mf:action <s_bad_de_var_as_predicate.v.ldpatch> ;
     mf:name "de_var_as_predicate.v" .
 
 <#de_var_as_subject.v> a :PositiveSyntaxTest ;
-    rdfs:comment "de var as subject.v ()" ;
+    rdfs:comment "de var as subject.v" ;
     mf:action <s_de_var_as_subject.v.ldpatch> ;
     mf:name "de_var_as_subject.v" .
 
 <#delete_empty_graph.v> a :NegativeSyntaxTest ;
-    rdfs:comment "delete empty graph.v ()" ;
+    rdfs:comment "delete empty graph.v" ;
     mf:action <s_bad_delete_empty_graph.v.ldpatch> ;
     mf:name "delete_empty_graph.v" .
 
 <#delete_no_period.v> a :NegativeSyntaxTest ;
-    rdfs:comment "delete no period.v ()" ;
+    rdfs:comment "delete no period.v" ;
     mf:action <s_bad_delete_no_period.v.ldpatch> ;
     mf:name "delete_no_period.v" .
 
 <#delete_var_as_object.v> a :PositiveSyntaxTest ;
-    rdfs:comment "delete var as object.v ()" ;
+    rdfs:comment "delete var as object.v" ;
     mf:action <s_delete_var_as_object.v.ldpatch> ;
     mf:name "delete_var_as_object.v" .
 
 <#delete_var_as_predicate.v> a :NegativeSyntaxTest ;
-    rdfs:comment "delete var as predicate.v ()" ;
+    rdfs:comment "delete var as predicate.v" ;
     mf:action <s_bad_delete_var_as_predicate.v.ldpatch> ;
     mf:name "delete_var_as_predicate.v" .
 
 <#delete_var_as_subject.v> a :PositiveSyntaxTest ;
-    rdfs:comment "delete var as subject.v ()" ;
+    rdfs:comment "delete var as subject.v" ;
     mf:action <s_delete_var_as_subject.v.ldpatch> ;
     mf:name "delete_var_as_subject.v" .
 
 <#deleteexisting_empty_graph.v> a :NegativeSyntaxTest ;
-    rdfs:comment "deleteexisting empty graph.v ()" ;
+    rdfs:comment "deleteexisting empty graph.v" ;
     mf:action <s_bad_deleteexisting_empty_graph.v.ldpatch> ;
     mf:name "deleteexisting_empty_graph.v" .
 
 <#deleteexisting_no_period.v> a :NegativeSyntaxTest ;
-    rdfs:comment "deleteexisting no period.v ()" ;
+    rdfs:comment "deleteexisting no period.v" ;
     mf:action <s_bad_deleteexisting_no_period.v.ldpatch> ;
     mf:name "deleteexisting_no_period.v" .
 
 <#deleteexisting_var_as_object.v> a :PositiveSyntaxTest ;
-    rdfs:comment "deleteexisting var as object.v ()" ;
+    rdfs:comment "deleteexisting var as object.v" ;
     mf:action <s_deleteexisting_var_as_object.v.ldpatch> ;
     mf:name "deleteexisting_var_as_object.v" .
 
 <#deleteexisting_var_as_predicate.v> a :NegativeSyntaxTest ;
-    rdfs:comment "deleteexisting var as predicate.v ()" ;
+    rdfs:comment "deleteexisting var as predicate.v" ;
     mf:action <s_bad_deleteexisting_var_as_predicate.v.ldpatch> ;
     mf:name "deleteexisting_var_as_predicate.v" .
 
 <#deleteexisting_var_as_subject.v> a :PositiveSyntaxTest ;
-    rdfs:comment "deleteexisting var as subject.v ()" ;
+    rdfs:comment "deleteexisting var as subject.v" ;
     mf:action <s_deleteexisting_var_as_subject.v.ldpatch> ;
     mf:name "deleteexisting_var_as_subject.v" .
 
@@ -273,11 +273,6 @@
     rdfs:comment "empty patch" ;
     mf:action <s_empty_patch.ldpatch> ;
     mf:name "empty_patch" .
-
-<#empty_patch_comments> a :PositiveSyntaxTest ;
-    rdfs:comment "empty patch comments ()" ;
-    mf:action <s_empty_patch_comments.ldpatch> ;
-    mf:name "empty_patch_comments" .
 
 <#empty_patch_whitespace> a :PositiveSyntaxTest ;
     rdfs:comment "empty patch whitespace" ;
@@ -290,52 +285,52 @@
     mf:name "path_mixed" .
 
 <#ul_bnode.v> a :NegativeSyntaxTest ;
-    rdfs:comment "ul bnode.v ()" ;
+    rdfs:comment "ul bnode.v" ;
     mf:action <s_bad_ul_bnode.v.ldpatch> ;
     mf:name "ul_bnode.v" .
 
 <#ul_iri.v> a :NegativeSyntaxTest ;
-    rdfs:comment "ul iri.v ()" ;
+    rdfs:comment "ul iri.v" ;
     mf:action <s_bad_ul_iri.v.ldpatch> ;
     mf:name "ul_iri.v" .
 
 <#ul_literal.v> a :NegativeSyntaxTest ;
-    rdfs:comment "ul literal.v ()" ;
+    rdfs:comment "ul literal.v" ;
     mf:action <s_bad_ul_literal.v.ldpatch> ;
     mf:name "ul_literal.v" .
 
 <#ul_no_period.v> a :NegativeSyntaxTest ;
-    rdfs:comment "ul no period.v ()" ;
+    rdfs:comment "ul no period.v" ;
     mf:action <s_bad_ul_no_period.v.ldpatch> ;
     mf:name "ul_no_period.v" .
 
 <#ul_no_predicate.v> a :NegativeSyntaxTest ;
-    rdfs:comment "ul no predicate.v ()" ;
+    rdfs:comment "ul no predicate.v" ;
     mf:action <s_bad_ul_no_predicate.v.ldpatch> ;
     mf:name "ul_no_predicate.v" .
 
 <#ul_no_slice.v> a :NegativeSyntaxTest ;
-    rdfs:comment "ul no slice.v ()" ;
+    rdfs:comment "ul no slice.v" ;
     mf:action <s_bad_ul_no_slice.v.ldpatch> ;
     mf:name "ul_no_slice.v" .
 
 <#ul_no_value.v> a :NegativeSyntaxTest ;
-    rdfs:comment "ul no value.v ()" ;
+    rdfs:comment "ul no value.v" ;
     mf:action <s_bad_ul_no_value.v.ldpatch> ;
     mf:name "ul_no_value.v" .
 
 <#ul_single_index.v> a :NegativeSyntaxTest ;
-    rdfs:comment "ul single index.v ()" ;
+    rdfs:comment "ul single index.v" ;
     mf:action <s_bad_ul_single_index.v.ldpatch> ;
     mf:name "ul_single_index.v" .
 
 <#ul_slice_wrong_order.v> a :NegativeSyntaxTest ;
-    rdfs:comment "ul slice wrong order.v ()" ;
+    rdfs:comment "ul slice wrong order.v" ;
     mf:action <s_bad_ul_slice_wrong_order.v.ldpatch> ;
     mf:name "ul_slice_wrong_order.v" .
 
 <#ul_var.v> a :NegativeSyntaxTest ;
-    rdfs:comment "ul var.v ()" ;
+    rdfs:comment "ul var.v" ;
     mf:action <s_bad_ul_var.v.ldpatch> ;
     mf:name "ul_var.v" .
 

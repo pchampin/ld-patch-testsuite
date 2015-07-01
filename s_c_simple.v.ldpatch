@@ -1,4 +1,4 @@
-# GENERATED from s_cut_simple.ldpatch - DO NOT CHANGE
+@prefix THIS_FILE_WAS_GENERATED__DO_NOT_CHANGE_IT: <>.
 Bind ?var <http://example.org/s> .
 
 C ?var .

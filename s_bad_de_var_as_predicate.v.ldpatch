@@ -1,4 +1,4 @@
-# GENERATED from s_bad_add_var_as_predicate.ldpatch - DO NOT CHANGE
+@prefix THIS_FILE_WAS_GENERATED__DO_NOT_CHANGE_IT: <>.
 Bind ?p <http://example.org/p> .
 DE {
   <http://example.org/s> ?p <http://example.org/o>

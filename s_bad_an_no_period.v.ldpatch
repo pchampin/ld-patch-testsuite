@@ -1,2 +1,2 @@
-# GENERATED from s_bad_add_no_period.ldpatch - DO NOT CHANGE
+@prefix THIS_FILE_WAS_GENERATED__DO_NOT_CHANGE_IT: <>.
 AN { <http://example.org/s1> <http://example.org/p1> <http://example.org/o1> }

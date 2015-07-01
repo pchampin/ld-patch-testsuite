@@ -1,4 +1,4 @@
-# GENERATED from s_add_var_as_subject.ldpatch - DO NOT CHANGE
+@prefix THIS_FILE_WAS_GENERATED__DO_NOT_CHANGE_IT: <>.
 Bind ?x <http://example.org/s2> .
 
 A { ?x <http://example.org/p2> <http://example.org/o2> } .
