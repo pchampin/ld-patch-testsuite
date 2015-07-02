@@ -1,6 +1,5 @@
 @prefix : <http://www.w3.org/2013/TurtleTests/> .
 @prefix x: <http://www.w3.org/2013/TurtleTests/> .
 Add {
-# percents
 :a%3E  x:%25 :a%3Eb .
 } .

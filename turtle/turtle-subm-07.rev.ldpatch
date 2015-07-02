@@ -1,5 +1,4 @@
 @prefix : <http://example.org/base#> .
 Delete {
-# 'a' only allowed as a predicate
 :a a :b .
 } .

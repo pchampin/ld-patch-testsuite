@@ -1,5 +1,4 @@
 @prefix : <http://example.org/base#> .
 Add {
-# 'a' only allowed as a predicate
 :a a :b .
 } .

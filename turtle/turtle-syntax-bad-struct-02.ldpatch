@@ -1,4 +1,3 @@
 Add {
-# Turtle is not N3
 <http://www.w3.org/2013/TurtleTests/s> = <http://www.w3.org/2013/TurtleTests/o> .
 } .

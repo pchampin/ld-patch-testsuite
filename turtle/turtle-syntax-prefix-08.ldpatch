@@ -1,5 +1,4 @@
 @prefix x: <http://www.w3.org/2013/TurtleTests/> .
 Add {
-# underscore is a legal pname character
 x:_  x:p_1 x:o .
 } .

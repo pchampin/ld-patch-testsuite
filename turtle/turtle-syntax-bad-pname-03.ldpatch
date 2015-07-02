@@ -1,5 +1,5 @@
 @prefix : <http://www.w3.org/2013/TurtleTests/> .
 Add {
-# No \u (x39 is "9")
+
 :a\u0039 :p :o .
 } .

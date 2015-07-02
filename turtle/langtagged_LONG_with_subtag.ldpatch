@@ -1,5 +1,4 @@
 @prefix :  <http://example.org/ex#> .
 Add {
-# Test long literal with lang tag
 :a :b """Cheers"""@en-UK .
 } .

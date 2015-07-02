@@ -1,7 +1,6 @@
 @prefix : <http://www.w3.org/2013/TurtleTests/> .
 @prefix ns: <http://www.w3.org/2013/TurtleTests/p#> .
 Add {
-# N3 paths
 
 :x^ns:p :p :z .
 } .

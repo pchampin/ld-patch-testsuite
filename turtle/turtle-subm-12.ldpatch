@@ -3,7 +3,6 @@
 @prefix ex3_: <http://example.org/ex3#> .
 @prefix ex4-: <http://example.org/ex4#> .
 Add {
-# Tests for - and _ in names, qnames
 
 ex1:foo-bar ex1:foo_bar "a" .
 ex-2:foo-bar ex-2:foo_bar "b" .

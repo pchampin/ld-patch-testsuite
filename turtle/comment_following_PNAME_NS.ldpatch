@@ -1,5 +1,4 @@
 @prefix p: <http://a.example/> .
 Add {
-<http://a.example/s> <http://a.example/p> p:#comment
-.
+<http://a.example/s> <http://a.example/p> p:.
 } .

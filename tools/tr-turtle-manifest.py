@@ -8,6 +8,7 @@ into a manifest-ldpatch.ttl adapted to LD Patch.
 
 # pylint: disable=C0103
 from os.path import abspath, dirname, join
+from re import compile as regexp
 from urllib import pathname2url, url2pathname
 
 from rdflib import BNode, Graph, Literal, Namespace, RDF, RDFS, URIRef
@@ -163,6 +164,8 @@ def convert_entry_type(etype, entry_name):
         RDFT.TestTurtleNegativeSyntax: NS.NegativeSyntaxTest,
     }[etype]
 
+STRIP_COMMENT = regexp(r'(?<!\\)#[^">]*$|^#.*$')
+
 def ttl2patch(iri, revext="", command="Add"):
     "Convert a ttl file into an ldpatch file."
     ret = URIRef(iri.replace(".ttl", "{}.ldpatch".format(revext)))
@@ -177,6 +180,7 @@ def ttl2patch(iri, revext="", command="Add"):
         with open(ipath) as ifile:
             for line in ifile:
                 if not line.startswith("@prefix"):
+                    line = STRIP_COMMENT.sub("", line)
                     ofile.write(line)
         ofile.write("} .\n")
     return ret

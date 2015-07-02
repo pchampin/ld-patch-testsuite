@@ -2,7 +2,6 @@
 @prefix a: <http://example.org/base2#> .
 @prefix b: <http://example.org/base3#> .
 Delete {
-# Test @prefix and qnames
 :a :b :c .
 a:a a:b a:c .
 :a a:a b:a .

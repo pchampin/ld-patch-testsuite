@@ -2,7 +2,7 @@
 @prefix ex:  <http://example.org/ex#> .
 @prefix :    <http://example.org/myprop#> .
 Delete {
-# Tests for rdf:_<numbers> and other qnames starting with _
+
 
 ex:foo rdf:_1 "1" .
 ex:foo rdf:_2 "2" .

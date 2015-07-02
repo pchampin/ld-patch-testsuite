@@ -1,6 +1,5 @@
 @prefix : <http://example.org/base#> .
 Delete {
-# Test , operator
 :a :b :c,
       :d,
       :e .
