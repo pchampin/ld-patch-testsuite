@@ -123,11 +123,13 @@ def prepare_data(g):
 
     return softwares, tests, report
 
+def html5_escape(str):
+    return str.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 def generate_html(g, softwares, tests, report):
     """Generate the ReST document of the report"""
 
-    print """<!html>
+    print """<!DOCTYPE html>
     <html>
     <head>
       <meta charset="utf-8"/>
@@ -215,11 +217,12 @@ def generate_html(g, softwares, tests, report):
 
     total = len(tests)
     for software, name, homepage, description, passed in softwares:
+        description = html5_escape(description)
         print """<table class="box" id="{name}">
                  <tr><th>Name</th><td><a href="#{name}">{name}</a></td></tr>
                  <tr><th>Description</th><td>{description}</td></tr>
                  <tr><th>Homepage</th>
-                     <td><tt><a href="{homepage}">{homepage}</a></tt></td></tr>
+                     <td><code><a href="{homepage}">{homepage}</a></code></td></tr>
                  <tr><th>Passed</th><td>{passed}/{total}</td></tr>
                  </table>""".format(**locals())
 
@@ -229,6 +232,7 @@ def generate_html(g, softwares, tests, report):
     for test in tests:
         name = g.value(test, MF.name)
         description = g.value(test, RDFS.comment).encode("utf-8")
+        description = html5_escape(description)
         passed = len([ val for val in report.get(test, {}).values() if val == EARL.passed ])
         print """<table class="box" id="{name}-desc">
                  <tr><th>Name</th><td><a href="#{name}-desc">{name}</a></td></tr>
@@ -237,6 +241,7 @@ def generate_html(g, softwares, tests, report):
                      <td><a href="#{name}-reports">{passed}/{total}</a></td></tr>
                  </table>""".format(**locals())
 
+    print "</body></html>"
 
 
 if __name__ == "__main__":
